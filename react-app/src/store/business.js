@@ -33,6 +33,14 @@ export const getBusinesses = () => async (dispatch) => {
     }
 }
 
+export const getBusinessId = (bizId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/biz/${bizId}`)
+    if (response.ok) {
+        const biz = await response.json()
+        dispatch(loadBusinesses(biz))
+    }
+}
+
 export const createBusiness = (bizData) => async (dispatch) => {
     const response = await csrfFetch('/api/biz', {
         method: "POST",
@@ -69,6 +77,7 @@ export const removeBusiness = (bizData) => async (dispatch) => {
     await response.json()
     dispatch(deleteBusiness(bizData.id))
 }
+
 export default function reducer(state = {}, action) {
     switch (action.type) {
 
