@@ -1,4 +1,3 @@
-import { csrfFetch } from "./csrf";
 //! action types
 const ADD_REVIEW = "biz/ADD_REVIEW";
 const GET_BIZ_REVIEWS = "biz/GET_BIZ_REVIEWS";

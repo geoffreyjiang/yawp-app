@@ -1,5 +1,3 @@
-import { csrfFetch } from "./csrf";
-
 const GET_QUESTIONS = "biz/GET_QUESTIONS"
 const GET_MY_QUESTION = "biz/GET_MY_QUESTION"
 const ASK_QUESTION = "biz/ASK_QUESTION"
