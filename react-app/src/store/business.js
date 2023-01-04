@@ -96,7 +96,7 @@ export const removeBusiness = (bizData) => async (dispatch) => {
     dispatch(deleteBusiness(bizData.id));
 };
 
-export default function reducer(state = {}, action) {
+export default function businessReducer(state = {}, action) {
     const newState = { ...state };
     switch (action.type) {
         case LOAD_BUSINESSES:
