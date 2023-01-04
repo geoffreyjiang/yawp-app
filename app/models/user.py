@@ -11,16 +11,26 @@ class User(db.Model, UserMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(40), nullable=False, unique=True)
+    password = db.Column(db.String(255), nullable=False)
+    first_name = db.Column(db.String(255), nullable=False)
+    last_name = db.Column(db.String(255), nullable=False)
     email = db.Column(db.String(255), nullable=False, unique=True)
-    hashed_password = db.Column(db.String(255), nullable=False)
+    phone_number = db.Column(db.String(25), nullable=True)
+    profile_pic = db.Column(db.Image, nullable=True)
+    business_owner = db.Column(db.Boolean, nullable=False)
+
+    biz = db.relationship('Business', back_populates='biz_owner', cascade='all, delete')
+    reviews = db.relationship('Review', back_populates='review_owner')
+    questions = db.relationship('Question', back_populates='question_owner')
+    answers = db.relationship('Answer', back_populates='answer_owner')
 
     @property
     def password(self):
-        return self.hashed_password
+        return self.password
 
     @password.setter
     def password(self, password):
-        self.hashed_password = generate_password_hash(password)
+        self.password = generate_password_hash(password)
 
     def check_password(self, password):
         return check_password_hash(self.password, password)
