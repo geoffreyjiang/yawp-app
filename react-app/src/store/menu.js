@@ -11,8 +11,8 @@ const addMenu = (menu) => ({
     menu,
 });
 
-export const getMenu = (menuId) => async (dispatch) => {
-    const response = await csrfFetch(`/api/biz/${menuId}/menu`);
+export const getMenu = (id) => async (dispatch) => {
+    const response = await csrfFetch(`/api/biz/${id}/menu`);
     if (response.ok) {
         const menu = await response.json();
         dispatch(loadMenu(menu));
