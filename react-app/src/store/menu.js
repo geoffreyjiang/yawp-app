@@ -1,3 +1,5 @@
+import { csrfFetch } from "./csrf";
+
 const LOAD_MENU = "/biz/LOAD_MENU";
 const ADD_TO_MENU = "/biz/ADD_TO_MENU";
 
