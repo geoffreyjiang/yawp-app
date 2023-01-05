@@ -7,8 +7,8 @@ class Review(db.Review):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    business_id =  db.Column(db.Integer, ForeignKey("businesses.id"), nullable=False)
-    user_id = db.Column(db.Integer, ForeignKey("users.id"), nullable=False)
+    business_id =  db.Column(db.Integer, db.ForeignKey("businesses.id"), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     image = db.Column(db.Image)
     rating = db.Column(db.Integer, nullable=False)
     body = db.Column(db.String(280), nullable=False)
