@@ -1,7 +1,7 @@
 from .db import db, environment, SCHEMA
 
 class Question(db.Question):
-        __tablename__ = 'question'
+        __tablename__ = 'questions'
 
     if environment == "production":
         __table_args__ = {'schema': SCHEMA}
