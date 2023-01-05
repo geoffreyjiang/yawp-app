@@ -4,26 +4,27 @@ def seed_answers():
     answer1 = Answer(
         user_id=1,
         question_id=1,
-        body="It was pretty mid ngl"
+        body="Yeah we can do that."
     )
 
     answer2 = Answer(
         user_id=1,
         question_id=2,
-        body="YOOOO this was BUSSIN'"
+        body="We don't take reservations"
     )
 
     answer3 = Answer(
         user_id=2,
-        question_id=1,
-        body="My personal favorite place to go to."
+        question_id=4,
+        body="Yeah, we got you."
     )
 
     answer4 = Answer(
         user_id=3,
         question_id=3,
-        body="Yum!"
+        body="Sounds good."
     )
+
 
     db.session.add(answer1)
     db.session.add(answer2)
