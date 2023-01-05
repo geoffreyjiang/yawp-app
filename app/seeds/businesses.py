@@ -26,7 +26,7 @@ def seed_businesses():
     biz3 = Business(
         name="Rally's", 
         address1="123 University Road",
-        address2=423,
+        address2="423",
         city="Seattle",
         state="Washington",
         image="https://as1.ftcdn.net/v2/jpg/04/57/56/50/1000_F_457565028_SNYUm8wEhR5vHgUyXDeZYAMYNS9PN4Ch.jpg",
