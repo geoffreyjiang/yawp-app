@@ -2,7 +2,7 @@ from app.models import db, Business, environment, SCHEMA
 
 
 
-def seed_business():
+def seed_businesses():
     biz1 = Business(
         name="McDonalds", 
         address1="3501 Grand Ave",
@@ -38,7 +38,7 @@ def seed_business():
     db.session.add(biz3)
     db.session.commit()
 
-def undo_business():
+def undo_businesses():
     if environment == "production":
         db.session.execute(f"TRUNCATE table {SCHEMA}.businesses RESTART IDENTITY CASCADE;")
     else:

@@ -2,7 +2,7 @@ from app.models import db, Menu, environment, SCHEMA
 
 
 
-def seed_answer():
+def seed_menus():
     item1 = Menu(
         name="Hamburger",
         price= 5.95,
