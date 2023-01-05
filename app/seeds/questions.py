@@ -2,23 +2,23 @@ from app.models import db, Question, environment, SCHEMA
 
 def seed_questions():
     one = Question(
-        business_id='1',
-        user_id='2',
+        business_id=1,
+        user_id=2,
         body='Whats the best dish?'
     )
     two = Question(
-        business_id='2',
-        user_id='1',
+        business_id=2,
+        user_id=1,
         body='Do they have happy hour?'
     )
     three = Question(
-        business_id='2',
-        user_id='2',
+        business_id=2,
+        user_id=2,
         body='What time do they open?'
     )
     four = Question(
-        business_id='1',
-        user_id='1',
+        business_id=1,
+        user_id=1,
         body='Is there parking?'
     )
 
