@@ -18,13 +18,21 @@ class Business(db.Model):
     biz_owner = db.relationship("User", back_populates="biz")
     biz_question = db.relationship('Question', back_populates='question_biz', cascade='all, delete')
     biz_review = db.relationship('Review', back_populates='review_biz', cascade='all, delete')
-    food_menu = db.relationship('Men', back_populates="biz_food")
+    food_menu = db.relationship('Menu', back_populates="biz_food")
 
 
     def __repr__(self):
         return f"<Biz id: {self.id}, name: {self.name}, address: {self.address1}, city: {self.city}, state: {self.state}, user_id: {self.user_id}>"
+
         
     def to_dict(self):
+        ratings = [reviews.to_dict()['stars'] for reviews in self.biz_review]
+        total = sum(ratings)
+
+        try:
+            avg = total / len(ratings)
+        except ZeroDivisionError:
+            avg = 0
         return {
             "id": self.id,
             "name": self.name,
@@ -34,7 +42,9 @@ class Business(db.Model):
             "state": self.state,
             "image": self.image,
             "userId": self.user_id,
-            "username": self.biz_owner.to_dict_basic()['username']
+            "ownerFirstName": self.biz_owner.to_dict_basic()['first_name'],
+            "averageRating": avg,
+            "numberOfReviews": len([reviews.to_dict() for reviews in self.biz_review])
             
         }
 
