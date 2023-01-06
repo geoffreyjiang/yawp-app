@@ -1,6 +1,6 @@
 from .db import db, environment, SCHEMA
 
-class Question(db.Question):
+class Question(db.Model):
     __tablename__ = 'questions'
 
     if environment == "production":

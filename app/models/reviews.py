@@ -1,6 +1,6 @@
 from .db import db, environment, SCHEMA
 
-class Review(db.Review):
+class Review(db.Model):
     __tablename__ = 'reviews'
 
     if environment == "production":
@@ -9,7 +9,7 @@ class Review(db.Review):
     id = db.Column(db.Integer, primary_key=True)
     business_id =  db.Column(db.Integer, db.ForeignKey("businesses.id"), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-    image = db.Column(db.Image)
+    image = db.Column(db.String(280), nullable=True)
     rating = db.Column(db.Integer, nullable=False)
     body = db.Column(db.String(280), nullable=False)
 

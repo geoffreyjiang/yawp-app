@@ -36,7 +36,7 @@ export const editReview = (review) => {
 //! thunk creators
 //  Create a Review for a Business based on the Business's id
 export const addNewReview = (bizId, reviewData) => async (dispatch) => {
-    const response = await csrfFetch(`/api/biz/${bizId}/reviews`, {
+    const response = await fetch(`/api/biz/${bizId}/reviews`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -51,13 +51,13 @@ export const addNewReview = (bizId, reviewData) => async (dispatch) => {
 
 // Get all reviews for the business by the business's id
 export const getSelectedBizReviews = (bizId) => async (dispatch) => {
-    const response = await csrfFetch(`/api/biz/${bizId}/reviews/`);
+    const response = await fetch(`/api/biz/${bizId}/reviews/`);
     const bizReviews = await response.json();
     dispatch(getBizReviews(bizReviews));
 };
 // Delete a Review
 export const deleteMyReview = (reviewId) => async (dispatch) => {
-    const response = await csrfFetch(`/api/reviews/${reviewId}`, {
+    const response = await fetch(`/api/reviews/${reviewId}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -73,7 +73,7 @@ export const deleteMyReview = (reviewId) => async (dispatch) => {
 // Edit a Review
 export const editMyReview =
     (reviewId, editedReviewData) => async (dispatch) => {
-        const response = await csrfFetch(`/api/reviews/${reviewId}`, {
+        const response = await fetch(`/api/reviews/${reviewId}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

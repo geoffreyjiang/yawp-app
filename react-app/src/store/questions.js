@@ -25,7 +25,7 @@ const removeQuestion = (questionId) => ({
 })
 
 export const getQuestions = (bizId) => async (dispatch) => {
-    const response = await csrfFetch(`/api/biz/${bizId}/reviews`)
+    const response = await fetch(`/api/biz/${bizId}/reviews`)
     if (response.ok) {
         const questions = await response.json()
         dispatch(loadQuestions(questions))
@@ -41,7 +41,7 @@ export const getQuestions = (bizId) => async (dispatch) => {
 // }
 
 export const postQuestion = (bizId, qData) => async (dispatch) => {
-    const response = await csrfFetch(`/api/biz/${bizId}/reviews`, {
+    const response = await fetch(`/api/biz/${bizId}/reviews`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -55,7 +55,7 @@ export const postQuestion = (bizId, qData) => async (dispatch) => {
 }
 
 export const editQuestion = (qData) => async (dispatch) => {
-    const response = await csrfFetch(`/api/questions/${qData.id}`, {
+    const response = await fetch(`/api/questions/${qData.id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -69,7 +69,7 @@ export const editQuestion = (qData) => async (dispatch) => {
 }
 
 export const deleteQuestion = (qData) => async (dispatch) => {
-    const response = await csrfFetch(`/api/questions/${qData.id}`, {
+    const response = await fetch(`/api/questions/${qData.id}`, {
         method: "DELETE",
     });
     await response.json();

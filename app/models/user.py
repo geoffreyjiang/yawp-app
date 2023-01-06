@@ -16,7 +16,7 @@ class User(db.Model, UserMixin):
     last_name = db.Column(db.String(255), nullable=False)
     email = db.Column(db.String(255), nullable=False, unique=True)
     phone_number = db.Column(db.String(25), nullable=True)
-    profile_pic = db.Column(db.Image, nullable=True)
+    profile_pic = db.Column(db.String(255), nullable=True)
     business_owner = db.Column(db.Boolean, nullable=False)
 
     biz = db.relationship('Business', back_populates='biz_owner', cascade='all, delete')
