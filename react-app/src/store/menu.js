@@ -12,7 +12,7 @@ const addMenu = (menu) => ({
 });
 
 export const getMenu = (id) => async (dispatch) => {
-    const response = await csrfFetch(`/api/biz/${id}/menu`);
+    const response = await fetch(`/api/biz/${id}/menu`);
     if (response.ok) {
         const menu = await response.json();
         dispatch(loadMenu(menu));
@@ -20,7 +20,7 @@ export const getMenu = (id) => async (dispatch) => {
 };
 
 export const addMenuItem = (id, item) => async (dispatch) => {
-    const response = await csrfFetch(`/api/biz/${id}/menu`, {
+    const response = await fetch(`/api/biz/${id}/menu`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
