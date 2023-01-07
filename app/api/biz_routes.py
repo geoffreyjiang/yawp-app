@@ -81,7 +81,7 @@ def questions_by_id(id):
 
 # Create a new menu item
 @biz_routes.route("/<int:id>/menu", methods=["POST"])
-def create_new_biz():
+def create_new_menu_item():
 
     menu_data = request.json
 
