@@ -92,3 +92,10 @@ def create_new_menu_item():
    
     return new_menu.to_dict()
 
+@biz_routes.route('/<int:id>/reviews')
+def bizReviews(id):
+    reviews = Review.query.filter(Review.business_id == id).all()
+    
+    return {review.id: review.to_dict() for review in reviews}
+
+    

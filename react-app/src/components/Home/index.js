@@ -40,7 +40,7 @@ const AllBiz = () => {
                                     history.push(`/biz/${biz.id}`);
                                     dispatch(getBusinessId(biz.id));
                                     dispatch(getSelectedBizReviews(biz.id));
-                                    dispatch(getQuestions(biz.id));
+                                    // dispatch(getQuestions(biz.id));
                                 }}
                             >
                                 View Business
