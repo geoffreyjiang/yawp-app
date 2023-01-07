@@ -8,7 +8,7 @@ def seed_menus():
         price= 5.95,
         business_id=1
         )
-     
+
     item2 = Menu(
         name="French Fries",
         price= 2.34,
@@ -35,18 +35,18 @@ def seed_menus():
         price= 2.45,
         business_id=3
         )
-    
 
-    
-  
-    
+
+
+
+
     db.session.add(item1)
     db.session.add(item2)
     db.session.add(item3)
     db.session.add(item4)
     db.session.add(item5)
     db.session.add(item6)
-    
+
     db.session.commit()
 
 def undo_menus():
@@ -54,6 +54,6 @@ def undo_menus():
         db.session.execute(f"TRUNCATE table {SCHEMA}.menus RESTART IDENTITY CASCADE;")
     else:
         db.session.execute("DELETE FROM menus")
-        
-        
+
+
     db.session.commit()
