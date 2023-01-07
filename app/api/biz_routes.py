@@ -1,6 +1,7 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
-from app.models import Business, db
+from app.models import Business, db, Review
+from app.forms import BizForm
 
 biz_routes = Blueprint('biz', __name__)
 
@@ -36,23 +37,23 @@ def get_biz_by_id(id):
 
 
 # Edit a Business
-# @biz_routes.route("/<int:id>", methods=["PUT"])
-# def edit_biz(id):
+@biz_routes.route("/<int:id>", methods=["PUT"])
+def edit_biz(id):
 
-#     business = Business.query.get(id)
+    business = Business.query.get(id)
   
-#     form = BizForm()
+    form = BizForm()
 
-#     business.name = form.data['name']
-#     business.address1 = form.data['address1']
-#     business.address2 = form.data['address2']
-#     business.city = form.data['city']
-#     business.state = form.data['state']
-#     business.image = form.data['image']
+    business.name = form.data['name']
+    business.address1 = form.data['address1']
+    business.address2 = form.data['address2']
+    business.city = form.data['city']
+    business.state = form.data['state']
+    business.image = form.data['image']
   
-#     db.session.commit()
+    db.session.commit()
 
-#     return business.to_dict_basic()
+    return business.to_dict_basic()
 
 
 # Delete a business 

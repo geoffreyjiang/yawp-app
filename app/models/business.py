@@ -26,7 +26,7 @@ class Business(db.Model):
 
         
     def to_dict(self):
-        ratings = [reviews.to_dict()['stars'] for reviews in self.biz_review]
+        ratings = [reviews.to_dict()['rating'] for reviews in self.biz_review]
         total = sum(ratings)
 
         try:
@@ -42,7 +42,7 @@ class Business(db.Model):
             "state": self.state,
             "image": self.image,
             "userId": self.user_id,
-            "ownerFirstName": self.biz_owner.to_dict_basic()['first_name'],
+            # "ownerFirstName": self.biz_owner.to_dict_basic()['first_name'],
             "averageRating": avg,
             "numberOfReviews": len([reviews.to_dict() for reviews in self.biz_review])
             
@@ -52,7 +52,7 @@ class Business(db.Model):
         return {
             "id": self.id,
             "body": self.body,
-            "stars": self.stars,
+            "rating": self.rating,
             "image": self.image,
             "userId": self.user_id,
             "businessId": self.business_id

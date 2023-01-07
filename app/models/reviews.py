@@ -17,8 +17,8 @@ class Review(db.Model):
     review_owner = db.relationship("User", back_populates="reviews")
 
 
-def to_dict(self):
-    return {
+    def to_dict(self):
+        return {
         "id": self.id,
         "business_id": self.business_id,
         "user_id": self.user_id,

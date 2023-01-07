@@ -12,6 +12,7 @@ def seed_users():
         phone_number='01111111111',
         business_owner=True
         )
+    # print(dir(andre))
     geoffrey = User(
         username='gjiang',
         password='password',
