@@ -1,1 +1,29 @@
+.biz-preview {
+    border: solid red;
+    grid-gap: 1.5vw;
+    display: grid;
+    font-size: 14px;
+    gap: 1.5vw;
+    grid-template-columns: repeat(4, 2fr);
+    justify-content: space-between;
+    margin-top: 35px;
+}
 
+.biz-preview-container {
+    margin-left: 35px;
+    margin-right: 45px;
+    height: 100vh;
+}
+
+.biz-img {
+    border-radius: 30px;
+    height: 35vh;
+    object-fit: cover;
+    transition-duration: 0.2s;
+    width: 21vw;
+}
+
+.image-container img {
+    overflow: hidden;
+    height: 200px;
+}
