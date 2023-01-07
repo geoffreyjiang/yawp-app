@@ -9,6 +9,7 @@ import UsersList from "./components/UsersList";
 import User from "./components/User";
 import { authenticate } from "./store/session";
 import AllBiz from "./components/Home";
+import Reviews from "./components/Review";
 function App() {
     const [loaded, setLoaded] = useState(false);
     const dispatch = useDispatch();
@@ -42,6 +43,10 @@ function App() {
                 </ProtectedRoute>
                 <Route path="/" exact={true}>
                     <AllBiz />
+                </Route>
+
+                <Route path="/biz/:bizId/reviews" exact={true}>
+                    <Reviews />
                 </Route>
             </Switch>
         </BrowserRouter>

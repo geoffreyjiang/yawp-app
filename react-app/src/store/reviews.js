@@ -51,8 +51,9 @@ export const addNewReview = (bizId, reviewData) => async (dispatch) => {
 
 // Get all reviews for the business by the business's id
 export const getSelectedBizReviews = (bizId) => async (dispatch) => {
-    const response = await fetch(`/api/biz/${bizId}/reviews/`);
+    const response = await fetch(`/api/biz/${bizId}/reviews`);
     const bizReviews = await response.json();
+
     dispatch(getBizReviews(bizReviews));
 };
 // Delete a Review

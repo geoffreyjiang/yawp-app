@@ -3,7 +3,7 @@ from app.models import Review, db
 from flask_login import login_required, current_user
 from app.forms import ReviewForm
 # bp = Blueprint('reviews', __name__, url_prefix='/reviews')
-business_route = Blueprint('biz', __name__, url_prefix='/biz')
+review_route = Blueprint('reviews', __name__, url_prefix='/reviews')
 
 # @bp.route('/reviews')
 # def reviews():
@@ -11,13 +11,9 @@ business_route = Blueprint('biz', __name__, url_prefix='/biz')
 #     return {review.to_dict() for review in review}
 
 
-@business_route.route('/<int:id>/reviews')
-def bizReviews(id):
-    review = Review.query.filter(Review.business_id == id).all()
-    return {review.id: review.to_dict() for i in review}
 
 
-@business_route.route('/<int:id>', method=['POST'])
+@review_route.route('/<int:id>', method=['POST'])
 @login_required
 def postReview(id):
         form = ReviewForm()
@@ -30,7 +26,7 @@ def postReview(id):
 
 
 
-@business_route.route('/<int:id>', method=['DELETE'])
+@review_route.route('/<int:id>', method=['DELETE'])
 def deleteReview(id):
     review = Review.query.get(id)
     if review:
@@ -39,7 +35,7 @@ def deleteReview(id):
         return redirect(f'/biz/{id}')
 
 
-@business_route.route('/<int:id>', method=['PUT'])
+@review_route.route('/<int:id>', method=['PUT'])
 def updateReview(id):
     form = ReviewForm()
     if form.validate_on_submit():
