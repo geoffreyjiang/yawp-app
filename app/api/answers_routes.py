@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, redirect
 from app.models import db, Answer
-
+from app.forms import AnswerForm
 answer_routes = Blueprint('answers', __name__)
 
 @answer_routes.route('/answers', methods=['GET'])
@@ -18,7 +18,7 @@ def answer(id):
 @answer_routes.route('/answers/<int:id>', methods=['POST'])
 def add_answer(id):
     # needs form
-    form
+    form = AnswerForm()
     if form.validate_on_submit():
         newAnswer = Answer()
 
@@ -29,9 +29,9 @@ def add_answer(id):
 
         return redirect('/')
 
-@answer_routes.route('/answers/<int:id>', methods=['UPDATE'])
+@answer_routes.route('/answers/<int:id>', methods=['PUT'])
 def update_answer(id):
-    form
+    form = AnswerForm()
     if form.validate_on_submit():
         updatedAnswer = Answer.query.filter_by(id=f'{id}')
         updatedAnswer.body = form.data['body']
@@ -42,5 +42,6 @@ def update_answer(id):
 @answer_routes.route('/answers/<int:id>', methods=['DELETE'])
 def delete_answer(id):
     answer = Answer.query.get(id)
-    db.session.delete(answer)
-    db.session.commit()
+    if answer:
+        db.session.delete(answer)
+        db.session.commit()

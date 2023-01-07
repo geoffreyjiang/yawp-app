@@ -60,7 +60,7 @@ export const editQuestion = (qData) => async (dispatch) => {
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(bizData),
+        body: JSON.stringify(qData),
     });
     if (response.ok) {
         const question = await response.json()
@@ -92,5 +92,7 @@ export default function questionReducer(state = {}, action) {
         case DELETE_QUESTION:
             delete newState[action.questionId];
             return newState;
+        default:
+            return state;
     }
 }

@@ -42,6 +42,8 @@ const menuReducer = (state = {}, action) => {
         case ADD_TO_MENU:
             newState[action.menu.id] = action.menu;
             return newState;
+        default:
+            return state;
     }
 };
 

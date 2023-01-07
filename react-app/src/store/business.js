@@ -36,7 +36,7 @@ const deleteBusiness = (bizId) => ({
 });
 
 export const getBusinesses = () => async (dispatch) => {
-    const response = await csrfFetch("/api/biz");
+    const response = await fetch("/api/biz");
     if (response.ok) {
         const biz = await response.json();
         dispatch(loadBusinesses(biz));
@@ -44,7 +44,7 @@ export const getBusinesses = () => async (dispatch) => {
 };
 
 export const getBusinessId = (bizId) => async (dispatch) => {
-    const response = await csrfFetch(`/api/biz/${bizId}`);
+    const response = await fetch(`/api/biz/${bizId}`);
     if (response.ok) {
         const biz = await response.json();
         dispatch(loadBusinessbyId(biz));
@@ -52,7 +52,7 @@ export const getBusinessId = (bizId) => async (dispatch) => {
 };
 
 export const getMyBusiness = () => async (dispatch) => {
-    const response = await csrfFetch(`/api/biz/current`);
+    const response = await fetch(`/api/biz/current`);
     if (response.ok) {
         const biz = await response.json();
         dispatch(loadMyBusiness(biz));
@@ -60,7 +60,7 @@ export const getMyBusiness = () => async (dispatch) => {
 };
 
 export const createBusiness = (bizData) => async (dispatch) => {
-    const response = await csrfFetch("/api/biz", {
+    const response = await fetch("/api/biz", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -75,7 +75,7 @@ export const createBusiness = (bizData) => async (dispatch) => {
 };
 
 export const editBusiness = (bizData) => async (dispatch) => {
-    const response = await csrfFetch(`/api/biz/${bizData.id}`, {
+    const response = await fetch(`/api/biz/${bizData.id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -89,7 +89,7 @@ export const editBusiness = (bizData) => async (dispatch) => {
 };
 
 export const removeBusiness = (bizData) => async (dispatch) => {
-    const response = await csrfFetch(`/api/biz/${bizData.id}`, {
+    const response = await fetch(`/api/biz/${bizData.id}`, {
         method: "DELETE",
     });
     await response.json();
