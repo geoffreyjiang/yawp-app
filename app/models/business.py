@@ -2,10 +2,10 @@ from .db import db, environment, SCHEMA
 
 class Business(db.Model):
     __tablename__ = 'businesses'
-    
+
     if environment == "production":
         __table_args__ = {'schema': SCHEMA}
-    
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(300), nullable=False)
     address1 = db.Column(db.String, nullable=False)
@@ -23,7 +23,7 @@ class Business(db.Model):
 
     def __repr__(self):
         return f"<Biz id: {self.id}, name: {self.name}, address: {self.address1}, city: {self.city}, state: {self.state}, user_id: {self.user_id}>"
-        
+
     def to_dict(self):
         return {
             "id": self.id,
@@ -35,7 +35,7 @@ class Business(db.Model):
             "image": self.image,
             "userId": self.user_id,
             "username": self.biz_owner.to_dict_basic()['username']
-            
+
         }
 
     def to_dict_basic(self):
@@ -46,6 +46,6 @@ class Business(db.Model):
             "image": self.image,
             "userId": self.user_id,
             "businessId": self.business_id
-           
+
 
         }
