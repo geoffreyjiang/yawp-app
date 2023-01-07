@@ -24,6 +24,17 @@ class User(db.Model, UserMixin):
     questions = db.relationship('Question', back_populates='question_owner')
     answers = db.relationship('Answer', back_populates='answer_owner')
 
+    # @property
+    # def password(self):
+    #     return self.password
+
+    # @password.setter
+    # def password(self, password):
+    #     self.password = generate_password_hash(password)
+
+    # def check_password(self, password):
+    #     return check_password_hash(self.password, password)
+
     @property
     def password(self):
         return self.hashed_password
