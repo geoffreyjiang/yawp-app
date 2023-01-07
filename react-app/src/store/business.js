@@ -114,5 +114,7 @@ export default function businessReducer(state = {}, action) {
         case DELETE_BUSINESS:
             delete newState[action.bizId];
             return newState;
+        default:
+            return state;
     }
 }
