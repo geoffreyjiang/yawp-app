@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
-from app.models import Business, db, Review, Menu
+from app.models import Business, db, Review, Menu, Question
 from app.forms import BizForm
 
 biz_routes = Blueprint('biz', __name__)
@@ -98,4 +98,10 @@ def bizReviews(id):
     
     return {review.id: review.to_dict() for review in reviews}
 
+@biz_routes.route("/<int:id>/questions")
+def questions_by_id(id):
+    
+    questions = Question.query.filter(Question.business_id == id).all()
+   
+    return {question.id: question.to_dict() for question in questions}
     

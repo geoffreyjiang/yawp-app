@@ -25,7 +25,7 @@ const removeQuestion = (questionId) => ({
 });
 
 export const getQuestions = (bizId) => async (dispatch) => {
-    const response = await fetch(`/api/biz/${bizId}/reviews`);
+    const response = await fetch(`/api/biz/${bizId}/questions`);
     if (response.ok) {
         const questions = await response.json();
         dispatch(loadQuestions(questions));
