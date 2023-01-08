@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { getBusinesses, getBusinessId } from "../../store/business";
 import { getQuestions } from "../../store/questions";
 import { getSelectedBizReviews } from "../../store/reviews";
+import { getMenu } from "../../store/menu";
 import "./index.css";
 const AllBiz = () => {
     const history = useHistory();
@@ -41,6 +42,7 @@ const AllBiz = () => {
                                     dispatch(getBusinessId(biz.id));
                                     dispatch(getSelectedBizReviews(biz.id));
                                     dispatch(getQuestions(biz.id));
+                                    dispatch(getMenu(biz.id));
                                 }}
                             >
                                 View Business
