@@ -9,6 +9,7 @@ import UsersList from "./components/UsersList";
 import User from "./components/User";
 import { authenticate } from "./store/session";
 import AllBiz from "./components/Home";
+import ViewBiz from "./components/ViewBiz";
 function App() {
     const [loaded, setLoaded] = useState(false);
     const dispatch = useDispatch();
@@ -39,6 +40,9 @@ function App() {
                 </ProtectedRoute>
                 <ProtectedRoute path="/users/:userId" exact={true}>
                     <User />
+                </ProtectedRoute>
+                <ProtectedRoute path="/biz/:bizId" exact={true}>
+                    <ViewBiz />
                 </ProtectedRoute>
                 <Route path="/" exact={true}>
                     <AllBiz />
