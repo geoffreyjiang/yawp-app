@@ -72,7 +72,7 @@ def delete_biz(id):
 
 # Get the menu by its ID
 @biz_routes.route("/<int:id>/menu")
-def questions_by_id(id):
+def menu_by_id(id):
     
     menus = Menu.query.filter(Menu.business_id == id).all()
    
