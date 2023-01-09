@@ -21,7 +21,9 @@ const AllQuestions = () => {
         return (
             <div className="question-item">
                 <h4>{questions.body}</h4>
-                <Link to={`/biz/${bizId}/question`}>Answer this question</Link>
+                <Link to={`/question/${questions.id}`}>
+                    Answer this question
+                </Link>
             </div>
         );
     });
@@ -29,7 +31,7 @@ const AllQuestions = () => {
         <>
             <div className="questions-container">
                 {allQuestions}
-                <button onClick={() => history.push(`/biz/${bizId}/ask`)}>
+                <button onClick={() => history.push(`/biz/${bizId}/question`)}>
                     Ask a question
                 </button>
             </div>

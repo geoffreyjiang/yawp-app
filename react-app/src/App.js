@@ -11,6 +11,7 @@ import { authenticate } from "./store/session";
 import AllBiz from "./components/Home";
 import AllQuestions from "./components/Questions";
 import MenuItems from "./components/Menu";
+import AskQuestion from "./components/Questions/questionForm";
 function App() {
     const [loaded, setLoaded] = useState(false);
     const dispatch = useDispatch();
@@ -48,6 +49,9 @@ function App() {
                 <Route path="/biz/:bizId" exact={true}>
                     <AllQuestions />
                     {/* <MenuItems /> */}
+                </Route>
+                <Route path="/biz/:bizId/question" exact={true}>
+                    <AskQuestion />
                 </Route>
             </Switch>
         </BrowserRouter>
