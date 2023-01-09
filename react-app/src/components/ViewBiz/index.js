@@ -23,15 +23,14 @@ const ViewBiz = () => {
     const questions = useSelector((store) => Object.values(store.questions));
 
     const editListingOnClick = (bizId) => {
-        console.log(bizId, "EDIT CLICK");
+        // console.log(bizId, "EDIT CLICK");
         history.push(`/biz/${bizId}/edit`);
     };
 
     const deleteListingOnClick = (bizId) => {
-        console.log(bizId, "DELETE CLICK");
+        // console.log(bizId, "DELETE CLICK");
         dispatch(removeBusiness(bizId));
         history.push("/");
-        // window.location.reload();
     };
 
     // to get the user session data
@@ -58,7 +57,9 @@ const ViewBiz = () => {
                         <button onClick={() => editListingOnClick(biz.id)}>
                             Edit Biz Details
                         </button>
-                        <button>Delete Button</button>
+                        <button onClick={() => deleteListingOnClick(biz.id)}>
+                            Delete Button
+                        </button>
                     </>
                 ) : null}
 

@@ -18,7 +18,7 @@ class Business(db.Model):
     biz_owner = db.relationship("User", back_populates="biz")
     biz_question = db.relationship('Question', back_populates='question_biz', cascade='all, delete')
     biz_review = db.relationship('Review', back_populates='review_biz', cascade='all, delete')
-    food_menu = db.relationship('Menu', back_populates="biz_food")
+    food_menu = db.relationship('Menu', back_populates="biz_food", cascade='all, delete')
 
 
     def __repr__(self):
