@@ -12,7 +12,7 @@ import AllBiz from "./components/Home";
 import ViewBiz from "./components/ViewBiz";
 import EditListingFormPage from "./components/Form/EditListForm";
 import { Redirect } from "react-router-dom";
-
+import CreateBiz from "./components/Form/CreateBizForm";
 function App() {
     const [loaded, setLoaded] = useState(false);
     const dispatch = useDispatch();
@@ -46,8 +46,11 @@ function App() {
                 <ProtectedRoute path="/users/:userId" exact={true}>
                     <User />
                 </ProtectedRoute>
+                <ProtectedRoute path="/biz" exact={true}>
+                    <CreateBiz />
+                </ProtectedRoute>
                 <ProtectedRoute path="/biz/:bizId/edit" exact={true}>
-                    {user.id == biz.userId ? (
+                    {user?.id == biz?.userId ? (
                         <EditListingFormPage />
                     ) : (
                         <Redirect to="/" />

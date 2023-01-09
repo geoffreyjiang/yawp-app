@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+
 import { getBusinesses, getBusinessId } from "../../store/business";
 import { getQuestions } from "../../store/questions";
 import { getSelectedBizReviews } from "../../store/reviews";
@@ -12,6 +13,9 @@ const AllBiz = () => {
         return Object.values(store.business);
     });
 
+    const navToCreateBiz = () => {
+        history.push("/biz");
+    };
     useEffect(() => {
         dispatch(getBusinesses());
     }, [dispatch]);
@@ -48,6 +52,9 @@ const AllBiz = () => {
                         </div>
                     </div>
                 ))}
+            </div>
+            <div className="create_biz_button">
+                <button onClick={navToCreateBiz}>Register A Business</button>
             </div>
         </>
     );
