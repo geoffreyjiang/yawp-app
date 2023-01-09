@@ -42,7 +42,6 @@ const AllBiz = () => {
                                     dispatch(getBusinessId(biz.id));
                                     dispatch(getSelectedBizReviews(biz.id));
                                     dispatch(getQuestions(biz.id));
-                                    dispatch(getMenu(biz.id));
                                 }}
                             >
                                 View Business
