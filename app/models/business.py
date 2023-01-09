@@ -53,11 +53,11 @@ class Business(db.Model):
     def to_dict_basic(self):
         return {
             "id": self.id,
-            "body": self.body,
-            "rating": self.rating,
+            "name": self.name,
+            "address1": self.address1,
+            "address2": self.address2,
+            "city": self.city,
+            "state": self.state,
             "image": self.image,
-            "userId": self.user_id,
-            "businessId": self.business_id
-
 
         }

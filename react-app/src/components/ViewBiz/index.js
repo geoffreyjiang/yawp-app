@@ -7,6 +7,7 @@ import {
 } from "../../store/business";
 import { getSelectedBizReviews } from "../../store/reviews";
 import { getQuestions } from "../../store/questions";
+
 import { useHistory, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import "./index.css";
@@ -14,9 +15,7 @@ const ViewBiz = () => {
     const dispatch = useDispatch();
     const { bizId } = useParams();
     const history = useHistory();
-    const [showEdit, setShowEdit] = useState(false);
-    const [editListingModal, setEditListingModal] = useState(false);
-    const [selectedEditSpot, setSelectedEditModal] = useState();
+
     const biz = useSelector((store) => store.business);
     const store = useSelector((store) => console.log(store, "STORE"));
     const reviews = useSelector((store) => Object.values(store.reviews));
@@ -25,7 +24,7 @@ const ViewBiz = () => {
 
     const editListingOnClick = (bizId) => {
         console.log(bizId, "EDIT CLICK");
-        setEditListingModal((editListingModal) => !editListingModal);
+        history.push(`/biz/${bizId}/edit`);
     };
 
     const deleteListingOnClick = (bizId) => {
@@ -56,19 +55,13 @@ const ViewBiz = () => {
                 <h3>{biz.username}</h3>
                 {user.id == biz.userId ? (
                     <>
-                        <button>Edit Biz Details</button>
+                        <button onClick={() => editListingOnClick(biz.id)}>
+                            Edit Biz Details
+                        </button>
                         <button>Delete Button</button>
                     </>
                 ) : null}
 
-                {/* <div>
-                    <EditListingFormModal
-                        showModal={editListingModal}
-                        setShowModal={() => editListingModal}
-                        // nameInitialValue={initialNameValue}
-                        id={biz.id}
-                    />
-                </div> */}
                 <h4>
                     <img className="biz-img" src={biz.image}></img>
                 </h4>

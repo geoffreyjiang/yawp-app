@@ -74,7 +74,7 @@ export const createBusiness = (bizData) => async (dispatch) => {
     }
 };
 
-export const editBusiness = (bizData) => async (dispatch) => {
+export const editBusiness = (bizId, bizData) => async (dispatch) => {
     const response = await fetch(`/api/biz/${bizData.id}`, {
         method: "PUT",
         headers: {
