@@ -48,7 +48,7 @@ function App() {
                 </Route>
                 <Route path="/biz/:bizId" exact={true}>
                     <AllQuestions />
-                    {/* <MenuItems /> */}
+                    <MenuItems />
                 </Route>
                 <Route path="/biz/:bizId/question" exact={true}>
                     <AskQuestion />

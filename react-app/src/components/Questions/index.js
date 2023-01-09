@@ -30,6 +30,7 @@ const AllQuestions = () => {
     return (
         <>
             <div className="questions-container">
+                <h3>Questions</h3>
                 {allQuestions}
                 <button onClick={() => history.push(`/biz/${bizId}/question`)}>
                     Ask a question

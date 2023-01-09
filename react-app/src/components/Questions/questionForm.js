@@ -21,11 +21,11 @@ const AskQuestion = () => {
             body,
         };
         console.log(data);
-        let newQuestion = await dispatch(postQuestion(bizId, data));
+        await dispatch(postQuestion(bizId, data));
         setBody("");
-        if (newQuestion) {
-            history.push(`/biz/${bizId}`);
-        }
+        // if (newQuestion) {
+        //     history.push(`/biz/${bizId}`);
+        // }
     };
     return (
         <>
@@ -36,7 +36,7 @@ const AskQuestion = () => {
                         type="text"
                         value={body}
                         name="question"
-                        onChange={(e) => setBody(`${e.target.value}`)}
+                        onChange={(e) => setBody(e.target.value)}
                     ></textarea>
                     <div>
                         <button className="submitBtn" type="submit">

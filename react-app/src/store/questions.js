@@ -41,6 +41,7 @@ export const getQuestions = (id) => async (dispatch) => {
 // }
 
 export const postQuestion = (bizId, qData) => async (dispatch) => {
+    console.log("QUESTION THUNK");
     const response = await fetch(`/api/biz/${bizId}/questions`, {
         method: "POST",
         headers: {

@@ -11,13 +11,13 @@ question_route = Blueprint('question', __name__,url_prefix='/questions')
 #     return {q.to_dict() for i in q}
 
 
-@business_route.route('/<int:id>')
+@business_route.route('/<int:id>', method=["GET", "POST"])
 def bizQuestions(id):
     question = Question.query.filter(Question.business_id == id).all()
     return {question.id: question.to_dict() for q in question}
 
 
-@question_route.route('/<int:id>', method=['POST'])
+@question_route.route('/<int:id>', method=['GET','POST'])
 @login_required
 def postQuestion(id):
     form = QuestionForm()
