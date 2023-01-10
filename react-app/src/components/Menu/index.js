@@ -1,10 +1,10 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getMenu } from "../../store/menu";
 import "./menu.css";
 
-const MenuItems = () => {
+const AddMenuItem = () => {
     const { bizId } = useParams();
     const m = useSelector((store) => {
         return Object.values(store.menu);
@@ -29,10 +29,11 @@ const MenuItems = () => {
         <>
             <div className="menu-container">
                 <h3>Menu</h3>
+                <Link to={`/biz/:bizId/addItem`}>Add Menu Item</Link>
                 {items}
             </div>
         </>
     );
 };
 
-export default MenuItems;
+export default AddMenuItem;
