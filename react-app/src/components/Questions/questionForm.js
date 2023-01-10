@@ -20,12 +20,11 @@ const AskQuestion = () => {
             businessId: bizId,
             body,
         };
-        console.log(data);
-        await dispatch(postQuestion(bizId, data));
-        setBody("");
-        // if (newQuestion) {
-        //     history.push(`/biz/${bizId}`);
-        // }
+        let newQuestion = dispatch(postQuestion(bizId, data));
+        if (newQuestion) {
+            history.push(`/biz/${bizId}`);
+            setBody("");
+        }
     };
     return (
         <>

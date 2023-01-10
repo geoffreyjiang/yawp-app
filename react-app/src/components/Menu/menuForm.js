@@ -5,26 +5,27 @@ import { addMenuItem } from "../../store/menu";
 
 const AddItem = () => {
     const user = useSelector((state) => state.session.user);
-    const { bizId } = useParams;
+    const { bizId } = useParams();
     const dispatch = useDispatch();
     const history = useHistory();
     const [name, setName] = useState("");
     const [price, setPrice] = useState("");
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!user) {
             alert("Please login!");
         }
         const data = {
-            businessId: bizId,
+            businessId: Number(bizId),
             name,
             price,
         };
         console.log(data);
-        const newItem = await dispatch(addMenuItem(bizId, data));
-        setPrice("");
+        let newItem = dispatch(addMenuItem(bizId, data));
         if (newItem) {
             history.push(`/biz/${bizId}`);
+            setPrice("");
         }
     };
     return (

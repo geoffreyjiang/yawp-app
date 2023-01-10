@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
 from app.models import Business, db, Review, Menu, Question
-from app.forms import BizForm, QuestionForm
+from app.forms import BizForm, QuestionForm, MenuForm
 
 biz_routes = Blueprint('biz', __name__)
 
@@ -11,7 +11,7 @@ biz_routes = Blueprint('biz', __name__)
 def get_all_bizes():
 
     business = Business.query.all()
-     
+
     return {biz.id: biz.to_dict() for biz in business}
 
 # Create a business
@@ -24,7 +24,7 @@ def create_new_biz():
 
     db.session.add(new_biz)
     db.session.commit()
-   
+
     return new_biz.to_dict()
 
 # Get a business by ID
@@ -32,7 +32,7 @@ def create_new_biz():
 def get_biz_by_id(id):
 
     business = Business.query.get(id)
-   
+
     return business.to_dict()
 
 
@@ -41,7 +41,7 @@ def get_biz_by_id(id):
 def edit_biz(id):
 
     business = Business.query.get(id)
-  
+
     form = BizForm()
 
     business.name = form.data['name']
@@ -50,19 +50,19 @@ def edit_biz(id):
     business.city = form.data['city']
     business.state = form.data['state']
     business.image = form.data['image']
-  
+
     db.session.commit()
 
     return business.to_dict_basic()
 
 
-# Delete a business 
+# Delete a business
 @biz_routes.route('/<int:id>', methods=["DELETE"])
 def delete_biz(id):
     data = request.json
     biz_delete = Business.query.get(id)
 
-   
+
     db.session.delete(biz_delete)
     db.session.commit()
     return {"message": "deleted successfully"}
@@ -73,57 +73,54 @@ def delete_biz(id):
 # Get the menu by its ID
 @biz_routes.route("/<int:id>/menu")
 def menu_by_id(id):
-    
+
     menus = Menu.query.filter(Menu.business_id == id).all()
-   
+
     return {menu.id: menu.to_dict() for menu in menus}
 
 
 # Create a new menu item
 @biz_routes.route("/<int:id>/menu", methods=["POST"])
-def create_new_menu_item():
-
-    menu_data = request.json
-
-    new_menu = Menu(**menu_data, user_id=current_user.id)
-
+@login_required
+def create_new_menu_item(id):
+    form = MenuForm()
+    new_menu = Menu(
+        name = form.data['name'],
+        price = form.data['price'],
+        business_id = id
+    )
     db.session.add(new_menu)
     db.session.commit()
-   
     return new_menu.to_dict()
 
 @biz_routes.route('/<int:id>/reviews')
 def bizReviews(id):
     reviews = Review.query.filter(Review.business_id == id).all()
-    
+
     return {review.id: review.to_dict() for review in reviews}
 
 @biz_routes.route("/<int:id>/questions")
 def questions_by_id(id):
-    
+
     questions = Question.query.filter(Question.business_id == id).all()
-   
+
     return {question.id: question.to_dict() for question in questions}
-    
+
 @biz_routes.route('/<int:id>/questions', methods=['POST'])
 @login_required
 def post_question(id):
     current_user_id = int(current_user.get_id())
     form = QuestionForm()
-    
-    # question = Question()
+
     new_question = Question(
         user_id = current_user_id,
         business_id = id,
         body = form.data['body']
     )
-    # form.populate_obj(question)
 
 
-    # db.session.add(question)
     db.session.add(new_question)
     db.session.commit()
-    # return redirect(f'/biz/{id}')
-   
-  
+
+
     return new_question.to_dict()

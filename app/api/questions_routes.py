@@ -1,10 +1,10 @@
-from flask import Blueprint,redirect
-from flask_login import login_required, current_user
-from app.models import Question, Business, db
-from app.forms import QuestionForm
+# from flask import Blueprint,redirect
+# from flask_login import login_required, current_user
+# from app.models import Question, Business, db
+# from app.forms import QuestionForm
 # bp = Blueprint('questions', __name__, url_prefix='/questions')
-business_route = Blueprint('biz', __name__, url_prefix='/biz')
-question_route = Blueprint('question', __name__,url_prefix='/questions')
+# business_route = Blueprint('biz', __name__, url_prefix='/biz')
+# question_route = Blueprint('question', __name__,url_prefix='/questions')
 # @bp.route('/questions')
 # def question():
 #     q = Question.query.all()
@@ -22,7 +22,7 @@ question_route = Blueprint('question', __name__,url_prefix='/questions')
 # def postQuestion(id):
 #     current_user_id = int(current_user.get_id())
 #     form = QuestionForm()
-    
+
 #     # question = Question()
 #     new_question = Question(
 #         user_id = current_user_id,
