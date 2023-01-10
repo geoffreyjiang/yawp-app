@@ -27,8 +27,8 @@ const AddMenuItem = () => {
 
     return (
         <>
+            <h3>Menu</h3>
             <div className="menu-container">
-                <h3>Menu</h3>
                 <Link to={`/biz/${bizId}/menu`}>Add Menu Item</Link>
                 {items}
             </div>
