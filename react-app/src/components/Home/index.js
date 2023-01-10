@@ -23,20 +23,20 @@ const AllBiz = () => {
     return (
         <>
             <div className="biz-preview">
-                {business.map((biz) => (
+                {business?.map((biz) => (
                     <div className="biz-container">
                         <div className="image-container">
-                            <img src={biz.image} alt={biz.name} />
+                            <img src={biz?.image} alt={biz?.name} />
                         </div>
                         <div className="biz-content">
-                            <div className="bizName">{biz.name}</div>
+                            <div className="bizName">{biz?.name}</div>
                             <div>
-                                Location: {biz.city}, {biz.state}{" "}
+                                Location: {biz?.city}, {biz?.state}{" "}
                             </div>
                             <div className="review-details">
-                                <div>Average Review: {biz.averageRating}</div>
+                                <div>Average Review: {biz?.averageRating}</div>
                                 <div>
-                                    Number of Reviews: {biz.numberOfReviews}
+                                    Number of Reviews: {biz?.numberOfReviews}
                                 </div>
                             </div>
                             <button
