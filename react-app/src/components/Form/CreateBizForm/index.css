@@ -47,10 +47,10 @@ form .biz-details .input-box {
 }
 
 .biz-details .input-box input:focus {
-    border-color: #9b59b6;
+    border-color: RED;
 }
 
-form button {
+.button {
     width: 100%;
     height: 45px;
     font-size: 20px;

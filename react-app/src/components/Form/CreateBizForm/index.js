@@ -30,17 +30,13 @@ const CreateBiz = () => {
         };
 
         dispatch(createBusiness(newBiz));
+        history.push("/");
     };
 
     return (
         <div>
             <div>
-                <button
-                    className="back-to-home-button"
-                    onClick={() => history.push("/")}
-                >
-                    Back to Home
-                </button>
+                <button className="back-to-home-button">Back to Home</button>
             </div>
             <div className="container">
                 <div className="title">Add Your Business Details</div>
@@ -92,16 +88,18 @@ const CreateBiz = () => {
                             />
                         </div>
                         <div className="input-box">
-                            <span className="details">Business Image</span>
+                            <span className="details">Business Image URL</span>
                             <input
-                                type="file"
-                                accept="image/png, image/gif, image/jpeg"
+                                type="input"
                                 placeholder="Enter Business Image"
                                 required
                                 onChange={(e) => setImage(e.target.value)}
                             />
                         </div>
-                        <button type="submit">Add Business</button>
+
+                        <button type="submit" className="button">
+                            Add Business
+                        </button>
                     </div>
                 </form>
             </div>
