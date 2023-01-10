@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
 from app.models import Business, db, Review, Menu, Question
-from app.forms import BizForm
+from app.forms import BizForm, QuestionForm
 
 biz_routes = Blueprint('biz', __name__)
 
@@ -105,3 +105,25 @@ def questions_by_id(id):
    
     return {question.id: question.to_dict() for question in questions}
     
+@biz_routes.route('/<int:id>/questions', methods=['POST'])
+@login_required
+def post_question(id):
+    current_user_id = int(current_user.get_id())
+    form = QuestionForm()
+    
+    # question = Question()
+    new_question = Question(
+        user_id = current_user_id,
+        business_id = id,
+        body = form.data['body']
+    )
+    # form.populate_obj(question)
+
+
+    # db.session.add(question)
+    db.session.add(new_question)
+    db.session.commit()
+    # return redirect(f'/biz/{id}')
+   
+  
+    return new_question.to_dict()
