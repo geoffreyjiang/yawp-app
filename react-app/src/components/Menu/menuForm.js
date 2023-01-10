@@ -3,10 +3,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { addMenuItem } from "../../store/menu";
 
-const addItem = () => {
+const AddItem = () => {
     const user = useSelector((state) => state.session.user);
     const { bizId } = useParams;
-    const [item, setItem] = useState("");
+    const dispatch = useDispatch();
+    const history = useHistory();
+    const [name, setName] = useState("");
     const [price, setPrice] = useState("");
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -15,7 +17,7 @@ const addItem = () => {
         }
         const data = {
             businessId: bizId,
-            item,
+            name,
             price,
         };
         console.log(data);
@@ -27,19 +29,21 @@ const addItem = () => {
     };
     return (
         <>
+            <h1>Yo</h1>
             <div className="add-menu-item-container">
                 <form className="menu-form" onSubmit={handleSubmit}>
                     <h2>Add Menu Item</h2>
                     <div className="menu-input">
-                        <label>Item</label>
+                        <label>Name</label>
                         <input
                             type="text"
-                            name="item"
-                            value={item}
-                            onChange={(e) => setItem(e.target.value)}
+                            name="name"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
                         ></input>
                     </div>
                     <div className="menu-input">
+                        <label>Price</label>
                         <input
                             type="text"
                             name="price"
@@ -56,4 +60,4 @@ const addItem = () => {
     );
 };
 
-export default addItem;
+export default AddItem;

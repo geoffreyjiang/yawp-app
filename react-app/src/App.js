@@ -12,7 +12,7 @@ import AllBiz from "./components/Home";
 import AllQuestions from "./components/Questions";
 import MenuItems from "./components/Menu";
 import AskQuestion from "./components/Questions/questionForm";
-import AddMenuItem from "./components/Menu";
+import AddItem from "./components/Menu/menuForm";
 function App() {
     const [loaded, setLoaded] = useState(false);
     const dispatch = useDispatch();
@@ -51,11 +51,11 @@ function App() {
                     <AllQuestions />
                     <MenuItems />
                 </Route>
-                <Route path="/biz/:bizId/question" exact={true}>
+                <Route path="/biz/:bizId/questions" exact={true}>
                     <AskQuestion />
                 </Route>
-                <Route path="/biz/:bizId/addItem" exact={true}>
-                    <AddMenuItem />
+                <Route path="/biz/:bizId/menu" exact={true}>
+                    <AddItem />
                 </Route>
             </Switch>
         </BrowserRouter>
