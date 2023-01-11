@@ -45,7 +45,7 @@ class Business(db.Model):
             # "ownerFirstName": self.biz_owner.to_dict_basic()['first_name'],
             "averageRating": avg,
             "numberOfReviews": len([reviews.to_dict() for reviews in self.biz_review]),
-
+            "reviews": [reviews.to_dict() for reviews in self.biz_review],
             # "username": self.biz_owner.to_dict_basic()['username']
 
         }

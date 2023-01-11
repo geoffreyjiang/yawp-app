@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 
 import { getBusinesses, getBusinessId } from "../../store/business";
 import { getQuestions } from "../../store/questions";
@@ -13,6 +13,13 @@ const AllBiz = () => {
         return Object.values(store.business);
     });
 
+    // business.map((biz) => {
+    //     console.log(
+    //         biz?.reviews[0]?.body,
+    //         biz?.reviews[0]?.rating,
+    //         "WHAT IS THIS"
+    //     );
+    // });
     const navToCreateBiz = () => {
         history.push("/biz");
     };
@@ -25,12 +32,25 @@ const AllBiz = () => {
             <div className="biz-preview">
                 {business?.map((biz) => (
                     <div className="biz-container">
+                        <div>{biz?.reviews[0]?.firstName}</div>
+                        <div>Wrote a review</div>
                         <div className="image-container">
                             <img src={biz?.image} alt={biz?.name} />
                         </div>
                         <div className="biz-content">
-                            <div className="bizName">{biz?.name}</div>
-                            <div>
+                            <div className="biz-name">
+                                <NavLink
+                                    to={`/biz/$biz.id`}
+                                    onClick={() => {
+                                        dispatch(getBusinessId(biz.id));
+                                        dispatch(getSelectedBizReviews(biz.id));
+                                        dispatch(getQuestions(biz.id));
+                                    }}
+                                >
+                                    {biz?.name}
+                                </NavLink>
+                            </div>
+                            {/* <div>
                                 Location: {biz?.city}, {biz?.state}{" "}
                             </div>
                             <div className="review-details">
@@ -38,17 +58,21 @@ const AllBiz = () => {
                                 <div>
                                     Number of Reviews: {biz?.numberOfReviews}
                                 </div>
+                            </div> */}
+                            <div>
+                                {biz?.reviews[0]?.firstName}'s Review: {"\n"}
                             </div>
-                            <button
-                                onClick={() => {
-                                    history.push(`/biz/${biz.id}`);
-                                    dispatch(getBusinessId(biz.id));
-                                    dispatch(getSelectedBizReviews(biz.id));
-                                    dispatch(getQuestions(biz.id));
-                                }}
-                            >
-                                View Business
-                            </button>
+                            <div>{biz?.reviews[0]?.body}</div>
+                            <div className="card--stats">
+                                {/* <img src={star} className="card--star" /> */}
+                                <div> Average Rating: {biz.averageRating}</div>
+                                <div className="gray">
+                                    Number of Reviews: {biz.numberOfReviews}
+                                </div>
+                                <div>
+                                    Location: {biz?.city}, {biz?.state}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 ))}
