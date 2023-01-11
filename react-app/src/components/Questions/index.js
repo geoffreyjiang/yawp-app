@@ -29,13 +29,13 @@ const AllQuestions = () => {
     });
     return (
         <>
-            <h3>Questions</h3>
-            <div className="questions-container">
-                {allQuestions}
+            <h3>
+                Questions
                 <button onClick={() => history.push(`/biz/${bizId}/questions`)}>
                     Ask a question
                 </button>
-            </div>
+            </h3>
+            <div className="questions-container">{allQuestions}</div>
         </>
     );
 };

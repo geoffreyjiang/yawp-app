@@ -19,7 +19,7 @@ const AddMenuItem = () => {
         return (
             <div className="menu-item-container">
                 <h4>
-                    {item.name}, $ {item.price}
+                    {item.name}, ${item.price}
                 </h4>
             </div>
         );
