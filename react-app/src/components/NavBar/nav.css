@@ -1,0 +1,38 @@
+/* .list-item {
+    justify-content: end;
+    list-style: none;
+    align-items: center;
+    text-decoration: none;
+} */
+
+/* ul > .list-item > .list-nav {
+    color: red;
+} */
+
+/* button {
+    display: flex;
+    justify-content: end;
+} */
+
+/* .fa-brands {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 50px;
+    margin-top: 22px;
+} */
+
+.nav-bar-container {
+    background-color: aquamarine;
+    height: 50px;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    justify-content: end;
+}
+
+li {
+    margin-right: 10px;
+    margin-bottom: 50px;
+}
