@@ -26,5 +26,6 @@ class Review(db.Model):
         "rating": self.rating,
         "body": self.body,
         "username": self.review_owner.to_dict()['firstName'],
-        "firstName": self.review_owner.to_dict()['firstName']
+        "firstName": self.review_owner.to_dict()['firstName'],
+        "lastName": self.review_owner.to_dict()['lastName']
     }

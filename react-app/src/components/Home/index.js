@@ -5,6 +5,7 @@ import { NavLink, useHistory } from "react-router-dom";
 import { getBusinesses, getBusinessId } from "../../store/business";
 import { getQuestions } from "../../store/questions";
 import { getSelectedBizReviews } from "../../store/reviews";
+import ImageSlider from "./ImageSlider";
 import "./index.css";
 const AllBiz = () => {
     const history = useHistory();
@@ -13,18 +14,20 @@ const AllBiz = () => {
         return Object.values(store.business);
     });
 
-    business.map((biz) => {
-        console.log(biz.id, "WHAT IS THIS");
-    });
+    // business.map((biz) => {
+    //     console.log(biz.reviews[biz.reviews.length - 1], "TESTING ARRAY FUNC");
+    // });
     const navToCreateBiz = () => {
         history.push("/biz");
     };
     useEffect(() => {
         dispatch(getBusinesses());
     }, [dispatch]);
-
+    console.log(business, "BUSINESS");
     return (
         <>
+            <ImageSlider />
+            <h1 className="header">Yawp's Recommended Restaurants</h1>
             <div className="biz-preview">
                 {business?.map((biz) => (
                     <div className="biz-container">
@@ -32,8 +35,31 @@ const AllBiz = () => {
                             <>
                                 {biz.reviews.length > 0 ? (
                                     <>
-                                        <div>{biz?.reviews[0]?.firstName}</div>
-                                        <div>Wrote a review</div>
+                                        <header className="header-card">
+                                            <div>
+                                                <span
+                                                    style={{
+                                                        fontWeight: "bold",
+                                                    }}
+                                                >
+                                                    {" "}
+                                                    {
+                                                        biz?.reviews[
+                                                            biz.reviews.length -
+                                                                1
+                                                        ]?.firstName
+                                                    }{" "}
+                                                    {""}
+                                                    {
+                                                        biz?.reviews[
+                                                            biz.reviews.length -
+                                                                1
+                                                        ]?.lastName
+                                                    }{" "}
+                                                </span>
+                                            </div>
+                                            <div>Wrote a review</div>
+                                        </header>
                                         <div className="image-container">
                                             <img
                                                 src={biz?.image}
@@ -41,62 +67,102 @@ const AllBiz = () => {
                                             />
                                         </div>
                                         <div className="biz-content">
-                                            <div className="biz-name">
-                                                <NavLink
-                                                    to={`/biz/${biz.id}`}
-                                                    onClick={() => {
-                                                        dispatch(
-                                                            getSelectedBizReviews(
-                                                                biz.id
-                                                            )
-                                                        );
-                                                        dispatch(
-                                                            getBusinessId(
-                                                                biz.id
-                                                            )
-                                                        );
+                                            <div className="biz-info">
+                                                <div className="biz-name">
+                                                    <NavLink
+                                                        to={`/biz/${biz.id}`}
+                                                        onClick={() => {
+                                                            dispatch(
+                                                                getSelectedBizReviews(
+                                                                    biz.id
+                                                                )
+                                                            );
+                                                            dispatch(
+                                                                getBusinessId(
+                                                                    biz.id
+                                                                )
+                                                            );
 
-                                                        dispatch(
-                                                            getQuestions(biz.id)
-                                                        );
+                                                            dispatch(
+                                                                getQuestions(
+                                                                    biz.id
+                                                                )
+                                                            );
+                                                        }}
+                                                    >
+                                                        {biz?.name}
+                                                    </NavLink>
+                                                </div>
+                                            </div>
+
+                                            <div className="review-info">
+                                                <div
+                                                    style={{
+                                                        fontWeight: "bold",
                                                     }}
                                                 >
-                                                    {biz?.name}
-                                                </NavLink>
-                                            </div>
-
-                                            <div>
-                                                {biz?.reviews[0]?.firstName}'s
-                                                Review: {"\n"}
-                                            </div>
-                                            <div>{biz?.reviews[0]?.body}</div>
-                                            <div className="card--stats">
-                                                {/* <img src={star} className="card--star" /> */}
-                                                <div>
-                                                    {" "}
-                                                    Average Rating:{" "}
-                                                    {biz.averageRating}
-                                                </div>
-                                                <div className="gray">
-                                                    Number of Reviews:{" "}
-                                                    {biz.numberOfReviews}
+                                                    Latest Review: {"\n"}
                                                 </div>
                                                 <div>
-                                                    Location: {biz?.city},{" "}
-                                                    {biz?.state}
+                                                    {
+                                                        biz?.reviews[
+                                                            biz.reviews.length -
+                                                                1
+                                                        ]?.rating
+                                                    }
                                                 </div>
+                                                <div className="actual-review">
+                                                    {
+                                                        biz?.reviews[
+                                                            biz.reviews.length -
+                                                                1
+                                                        ]?.body
+                                                    }
+                                                </div>
+                                                <div>
+                                                    <h4 className="biz-review-info">
+                                                        Biz Review Info
+                                                    </h4>
+                                                    <div className="reviews">
+                                                        <div>
+                                                            <span
+                                                                style={{
+                                                                    fontWeight:
+                                                                        "bold",
+                                                                }}
+                                                            >
+                                                                Total Reviews:{" "}
+                                                            </span>
+                                                            {
+                                                                biz.numberOfReviews
+                                                            }
+                                                        </div>
+                                                        <div>
+                                                            <span
+                                                                style={{
+                                                                    fontWeight:
+                                                                        "bold",
+                                                                }}
+                                                            >
+                                                                Avg Review:{" "}
+                                                            </span>
+                                                            {biz.averageRating}{" "}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="card--stats"></div>
                                             </div>
                                         </div>
                                     </>
                                 ) : (
-                                    <>
+                                    <div className="no-review-container">
                                         <div className="image-container-no-review">
                                             <img
                                                 src={biz?.image}
                                                 alt={biz?.name}
                                             />
                                         </div>
-                                        <div className="biz-content">
+                                        <div className="test-container">
                                             <div className="biz-name-no-review">
                                                 <NavLink
                                                     to={`/biz/${biz.id}`}
@@ -121,17 +187,12 @@ const AllBiz = () => {
                                                 </NavLink>
                                             </div>
 
-                                            <div>
-                                                Location: {biz?.city},{" "}
-                                                {biz?.state}
-                                            </div>
-
                                             <div className="first-review">
-                                                Be the first to review{" "}
-                                                {biz?.name}!
+                                                Be the first to leave a review
+                                                for {biz?.name}!
                                             </div>
                                         </div>
-                                    </>
+                                    </div>
                                 )}
                             </>
                         )}
