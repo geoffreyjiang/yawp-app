@@ -13,12 +13,12 @@ const NavBar = () => {
             <ul>
                 <li className="list-item">
                     <NavLink className="list-nav" to="/" exact={true}>
-                        <i class="fa-solid fa-house"></i>
+                        <i class="fa-solid fa-house fa-2x"></i>
                     </NavLink>
                 </li>
                 <li className="list-item">
                     <NavLink className="list-nav" to="/" exact={true}>
-                        <i class="fa-solid fa-plus"></i>
+                        <i class="fa-solid fa-plus fa-2x"></i>
                     </NavLink>
                 </li>
                 <li className="list-item">
@@ -31,7 +31,7 @@ const NavBar = () => {
             <ul>
                 <li className="list-item">
                     <NavLink to="/" className="list-nav" exact={true}>
-                        <i class="fa-solid fa-house"></i>
+                        <i class="fa-solid fa-house fa-2x"></i>
                     </NavLink>
                 </li>
                 <li>
@@ -54,7 +54,7 @@ const NavBar = () => {
 
     return (
         <nav className="nav-bar-container">
-            <i class="fa-brands fa-yelp">YAWP</i>
+            <i class="fa-brands fa-yelp fa-2x">YAWP</i>
             {session}
         </nav>
     );
