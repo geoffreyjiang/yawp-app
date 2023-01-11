@@ -17,6 +17,7 @@ class Review(db.Model):
     review_owner = db.relationship("User", back_populates="reviews")
 
 
+
     def to_dict(self):
         return {
         "id": self.id,
@@ -24,5 +25,6 @@ class Review(db.Model):
         "userId": self.user_id,
         "image": self.image,
         "rating": self.rating,
-        "body": self.body
+        "body": self.body,
+        "firstName": self.review_owner.to_dict()['firstName']
     }

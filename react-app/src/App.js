@@ -10,6 +10,7 @@ import User from "./components/User";
 import { authenticate } from "./store/session";
 import AllBiz from "./components/Home";
 import ReviewForm from "./components/ReviewForm";
+import PostReview from "./components/ReviewForm/CreateReview";
 
 function App() {
     const [loaded, setLoaded] = useState(false);
@@ -45,8 +46,11 @@ function App() {
                 <Route path="/" exact={true}>
                     <AllBiz />
                 </Route>
-                <Route path="/biz/:bizId">
+                <Route path="/biz/:bizId" exact={true}>
                     <ReviewForm />
+                </Route>
+                <Route path="/biz/:bizId/reviews" exact={true}>
+                    <PostReview />
                 </Route>
             </Switch>
         </BrowserRouter>

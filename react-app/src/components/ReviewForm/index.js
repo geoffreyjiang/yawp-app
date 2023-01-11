@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import businessReducer, { getBusinessId } from '../../store/business'
 import { getSelectedBizReviews } from '../../store/reviews'
+import PostReview from './CreateReview'
 const ReviewForm = () => {
+    const history = useHistory()
     const dispatch = useDispatch()
     const { bizId } = useParams();
     const biz = useSelector((state) => state.business)
@@ -18,7 +20,7 @@ const ReviewForm = () => {
         dispatch(getSelectedBizReviews(bizId))
     }, [dispatch, bizId])
 
-    console.log(bizReviews[0]?.User?.username, "review")
+    console.log(bizReviews[0], "review")
     return (
         <div>
             <h1>Reviews</h1>
@@ -32,7 +34,11 @@ const ReviewForm = () => {
                 }
                 else {
                     return (
-                        <button>
+                        <button
+                            onClick={() => {
+                                history.push(`/biz/${bizId}/reviews`);
+                                <PostReview user={sessionUser} />
+                            }}>
                             Create Review
                         </button>
                     )
@@ -44,7 +50,8 @@ const ReviewForm = () => {
                         return (
                             <div class="reviews" key={review?.id}>
                                 <p className="reviewBody">{review?.body}</p>
-                                <h4 className="reviewUser">{review?.User?.username}</h4>
+                                <h2 className="rating">{review?.rating}</h2>
+                                <h4 className="reviewUser">{review?.firstName}</h4>
                             </div>
                         )
                     })

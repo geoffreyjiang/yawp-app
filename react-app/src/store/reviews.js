@@ -36,6 +36,8 @@ export const editReview = (review) => {
 //! thunk creators
 //  Create a Review for a Business based on the Business's id
 export const addNewReview = (bizId, reviewData) => async (dispatch) => {
+    console.log(bizId, "<=== BIZ ID")
+    console.log(reviewData, "<==== review DATA")
     const response = await fetch(`/api/biz/${bizId}/reviews`, {
         method: "POST",
         headers: {
@@ -51,7 +53,6 @@ export const addNewReview = (bizId, reviewData) => async (dispatch) => {
 
 // Get all reviews for the business by the business's id
 export const getSelectedBizReviews = (bizId) => async (dispatch) => {
-    console.log(bizId, "THIS IS THE REVIEW THUNK");
     const response = await fetch(`/api/biz/${bizId}/reviews`);
     const bizReviews = await response.json();
     dispatch(getBizReviews(bizReviews));

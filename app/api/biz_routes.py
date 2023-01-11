@@ -2,6 +2,7 @@ from flask import Blueprint, request
 from flask_login import login_required, current_user
 from app.models import Business, db, Review, Menu
 from app.forms import BizForm
+from app.forms import ReviewForm
 
 biz_routes = Blueprint('biz', __name__)
 
@@ -98,3 +99,21 @@ def bizReviews(id):
     reviews = Review.query.filter(Review.business_id == id).all()
 
     return {review.id: review.to_dict() for review in reviews}
+
+@biz_routes.route('/<int:id>/reviews', methods=['POST'])
+@login_required
+def postReview(id):
+    current_user_id = int(current_user.get_id())
+    form = ReviewForm()
+    review = Review(
+        body = form.data['body'],
+        rating = form.data['rating'],
+        image = form.data['image'],
+        user_id = current_user_id,
+        business_id = id
+        )
+        # form.populate_obj(review)
+    print(request.method, "METHOD REQUEST")
+    db.session.add(review)
+    db.session.commit()
+    return review.to_dict()

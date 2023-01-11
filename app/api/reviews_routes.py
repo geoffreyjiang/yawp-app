@@ -10,20 +10,10 @@ review_route = Blueprint('reviews', __name__, url_prefix='/reviews')
 #     review = Review.query.all()
 #     return {review.to_dict() for review in review}
 
-@review_route.route('/<int:id>', method=['POST'])
-@login_required
-def postReview(id):
-        form = ReviewForm()
-        review = Review()
-        form.populate_obj(review)
-
-        db.session.add(review)
-        db.session.commit()
-        return redirect(f'/biz/{id}')
 
 
 
-@review_route.route('/<int:id>', method=['DELETE'])
+@review_route.route('/<int:id>', methods=['DELETE'])
 def deleteReview(id):
     review = Review.query.get(id)
     if review:
@@ -32,11 +22,15 @@ def deleteReview(id):
         return redirect(f'/biz/{id}')
 
 
-@review_route.route('/<int:id>', method=['PUT'])
+@review_route.route('/<int:id>', methods=['PUT'])
 def updateReview(id):
+    review_edit = Review.query.get(id)
+
     form = ReviewForm()
-    if form.validate_on_submit():
-        review = Review.query.filter_by(id=f'{id}')
-        review.body = form.data['body']
-        db.session.commit()
-        return redirect(f'/biz/{id}')
+    review_edit.body = form.data['body']
+    review_edit.rating = form.data['rating']
+    review_edit.image = form.data['image']
+
+    db.session.commit()
+
+    return review_edit.to_dict()
