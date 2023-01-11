@@ -20,7 +20,9 @@ const AllQuestions = () => {
     const allQuestions = q.map((questions) => {
         return (
             <div className="question-item">
-                <h4>{questions.body}</h4>
+                <h4>
+                    {questions.body} by: {questions.username}
+                </h4>
                 <Link to={`/question/${questions.id}`}>
                     Answer this question
                 </Link>

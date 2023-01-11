@@ -20,5 +20,6 @@ class Question(db.Model):
         "id": self.id,
         "userId": self.user_id,
         "businessId": self.business_id,
-        "body": self.body
+        "body": self.body,
+        "username": self.question_owner.to_dict()['username'],
     }
