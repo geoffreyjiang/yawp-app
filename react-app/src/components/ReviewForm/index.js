@@ -5,6 +5,7 @@ import businessReducer, { getBusinessId } from '../../store/business'
 import { getSelectedBizReviews } from '../../store/reviews'
 import PostReview from './CreateReview'
 const ReviewForm = () => {
+    const [userHasReview, setUserHasReview] = useState(false)
     const history = useHistory()
     const dispatch = useDispatch()
     const { bizId } = useParams();
@@ -24,7 +25,11 @@ const ReviewForm = () => {
     return (
         <div>
             <h1>Reviews</h1>
-            {bizReviews?.map((review) => {
+            {bizReviews?.filter((review) => review?.userId === sessionUser?.id).length ? <button>Update Review</button> : <button onClick={() => {
+                history.push(`/biz/${bizId}/reviews`);
+                <PostReview user={sessionUser} />
+            }}>Create Review</button>}
+            {/* {bizReviews?.map((review) => {
                 if (review?.userId === sessionUser?.id) {
                     return (
                         <button>
@@ -43,7 +48,7 @@ const ReviewForm = () => {
                         </button>
                     )
                 }
-            })}
+            })} */}
             <div className="reviewsHolder">
                 {
                     bizReviews?.map((review) => {
