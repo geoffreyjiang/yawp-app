@@ -58,3 +58,17 @@
     display: flex;
     justify-content: center;
 }
+
+.first-review {
+    padding-top: 40px;
+}
+
+.biz-name-no-review {
+    margin-bottom: 0.5rem;
+    padding-top: 20px;
+}
+
+.image-container-no-review img {
+    overflow: hidden;
+    height: 220px;
+}
