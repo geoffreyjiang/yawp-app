@@ -13,12 +13,12 @@ const NavBar = () => {
             <ul>
                 <li className="list-item">
                     <NavLink className="list-nav" to="/" exact={true}>
-                        Home
+                        <i class="fa-solid fa-house"></i>
                     </NavLink>
                 </li>
                 <li className="list-item">
                     <NavLink className="list-nav" to="/" exact={true}>
-                        <i class="fa-solid fa-plus"></i>{" "}
+                        <i class="fa-solid fa-plus"></i>
                     </NavLink>
                 </li>
                 <li className="list-item">
@@ -31,7 +31,7 @@ const NavBar = () => {
             <ul>
                 <li className="list-item">
                     <NavLink to="/" className="list-nav" exact={true}>
-                        Home
+                        <i class="fa-solid fa-house"></i>
                     </NavLink>
                 </li>
                 <li>
@@ -40,11 +40,11 @@ const NavBar = () => {
                     </NavLink>
                 </li>
                 <li className="list-item">
-                    <NavLink to="/login" exact={true} className="list-nav">
+                    <NavLink to="/login" className="list-nav">
                         Login
                     </NavLink>
                     {" | "}
-                    <NavLink to="/sign-up" exact={true} className="list-nav">
+                    <NavLink to="/sign-up" className="list-nav">
                         Sign Up
                     </NavLink>
                 </li>

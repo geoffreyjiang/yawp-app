@@ -14,25 +14,31 @@
     justify-content: end;
 } */
 
-/* .fa-brands {
-    display: flex;
-    justify-content: space-between;
+.fa-brands {
     margin-left: 50px;
-    margin-top: 22px;
-} */
+}
 
 .nav-bar-container {
     background-color: aquamarine;
     height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 ul {
     list-style: none;
+    /* position: fixed; */
     display: flex;
-    justify-content: end;
+    margin-right: 15px;
+    /* align-items: center; */
+    /* justify-content: space-between; */
 }
 
 li {
     margin-right: 10px;
-    margin-bottom: 50px;
 }
+/*
+ul > .list-item > .list-nav {
+    display: inline-block;
+} */
