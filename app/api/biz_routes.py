@@ -11,7 +11,7 @@ biz_routes = Blueprint('biz', __name__)
 def get_all_bizes():
 
     business = Business.query.all()
-     
+
     return {biz.id: biz.to_dict() for biz in business}
 
 # Create a business
@@ -24,7 +24,7 @@ def create_new_biz():
 
     db.session.add(new_biz)
     db.session.commit()
-   
+
     return new_biz.to_dict()
 
 # Get a business by ID
@@ -32,7 +32,7 @@ def create_new_biz():
 def get_biz_by_id(id):
 
     business = Business.query.get(id)
-   
+
     return business.to_dict()
 
 
@@ -41,7 +41,7 @@ def get_biz_by_id(id):
 def edit_biz(id):
 
     business = Business.query.get(id)
-  
+
     form = BizForm()
 
     business.name = form.data['name']
@@ -50,19 +50,19 @@ def edit_biz(id):
     business.city = form.data['city']
     business.state = form.data['state']
     business.image = form.data['image']
-  
+
     db.session.commit()
 
     return business.to_dict_basic()
 
 
-# Delete a business 
+# Delete a business
 @biz_routes.route('/<int:id>', methods=["DELETE"])
 def delete_biz(id):
     data = request.json
     biz_delete = Business.query.get(id)
 
-   
+
     db.session.delete(biz_delete)
     db.session.commit()
     return {"message": "deleted successfully"}
@@ -73,9 +73,9 @@ def delete_biz(id):
 # Get the menu by its ID
 @biz_routes.route("/<int:id>/menu")
 def questions_by_id(id):
-    
+
     menus = Menu.query.filter(Menu.business_id == id).all()
-   
+
     return {menu.id: menu.to_dict() for menu in menus}
 
 
@@ -89,6 +89,6 @@ def create_new_menu_item():
 
     db.session.add(new_menu)
     db.session.commit()
-   
+
     return new_menu.to_dict()
 

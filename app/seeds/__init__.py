@@ -25,8 +25,8 @@ def seed():
         undo_reviews()
         undo_businesses()
         undo_users()
-        
-    seed_users()  
+
+    seed_users()
     seed_businesses()
     seed_menus()
     seed_reviews()
