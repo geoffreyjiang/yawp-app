@@ -78,7 +78,7 @@ export const editMyReview =
         console.log(reviewId, "<==== REVIEW ID")
         console.log(editedReviewData, "<=== IN THE STORE")
         const response = await fetch(`/api/reviews/${reviewId}`, {
-            method: "PATCH",
+            method: "PUT",
             headers: {
                 "Content-Type": "application/json",
             },
