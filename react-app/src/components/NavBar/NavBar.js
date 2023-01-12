@@ -17,7 +17,7 @@ const NavBar = () => {
                     </NavLink>
                 </li>
                 <li className="list-item">
-                    <NavLink className="list-nav" to="/" exact={true}>
+                    <NavLink className="list-nav" to="/biz" exact={true}>
                         <i class="fa-solid fa-plus fa-2x"></i>
                     </NavLink>
                 </li>
