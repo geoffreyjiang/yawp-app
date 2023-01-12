@@ -2,12 +2,12 @@ export const sliderData = [
     {
         image: "https://dynaimage.cdn.cnn.com/cnn/q_auto,w_900,c_fill,g_auto,h_506,ar_16:9/http%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F190710135245-12-waterfront-restaurants.jpg",
         heading: "Get the best reviews",
-        desc: '"Before I go to any resturants, I check Yawp to see what people thinks" - Yawp user',
+        desc: '"Before I go to any resturants, I check Yawp to see the reviews. This website is a game change!!" - Yawp user',
     },
     {
         image: "https://media.timeout.com/images/105843871/750/422/image.jpg",
         heading: "Learn",
-        desc: '"Once I landed in Los Angeles, I used Yawp to find the top resturants in the area! -Yawp user"',
+        desc: '"Once I landed in Los Angeles, I used Yawp to find the bests resturants in the area! -Yawp user"',
     },
     {
         image: "https://thebeaconauburn.com/wp-content/uploads/2021/08/A-Group-of-People-Eating-Food-at-a-Restaurant.jpeg",

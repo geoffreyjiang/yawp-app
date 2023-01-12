@@ -91,6 +91,7 @@
 .no-review-container {
     /* border: solid yellow; */
     height: 10cm;
+    overflow: hidden;
 }
 
 .biz-name-no-review {

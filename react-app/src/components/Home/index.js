@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
-
 import { getBusinesses, getBusinessId } from "../../store/business";
 import { getQuestions } from "../../store/questions";
 import { getSelectedBizReviews } from "../../store/reviews";
+import Rating from "./Rating";
 import ImageSlider from "./ImageSlider";
 import "./index.css";
 const AllBiz = () => {
@@ -13,7 +13,7 @@ const AllBiz = () => {
     const business = useSelector((store) => {
         return Object.values(store.business);
     });
-
+    let test;
     // business.map((biz) => {
     //     console.log(biz.reviews[biz.reviews.length - 1], "TESTING ARRAY FUNC");
     // });
@@ -104,12 +104,14 @@ const AllBiz = () => {
                                                     Latest Review: {"\n"}
                                                 </div>
                                                 <div>
-                                                    {
-                                                        biz?.reviews[
-                                                            biz.reviews.length -
-                                                                1
-                                                        ]?.rating
-                                                    }
+                                                    <Rating
+                                                        value={
+                                                            biz.reviews[
+                                                                biz.reviews
+                                                                    .length - 1
+                                                            ].rating
+                                                        }
+                                                    />
                                                 </div>
                                                 <div className="actual-review">
                                                     {
@@ -124,7 +126,7 @@ const AllBiz = () => {
                                                         Biz Review Info
                                                     </h4>
                                                     <div className="reviews">
-                                                        <div>
+                                                        {/* <div>
                                                             <span
                                                                 style={{
                                                                     fontWeight:
@@ -136,7 +138,7 @@ const AllBiz = () => {
                                                             {
                                                                 biz.numberOfReviews
                                                             }
-                                                        </div>
+                                                        </div> */}
                                                         <div>
                                                             <span
                                                                 style={{
@@ -144,9 +146,13 @@ const AllBiz = () => {
                                                                         "bold",
                                                                 }}
                                                             >
-                                                                Avg Review:{" "}
+                                                                Biz Avg Review:{" "}
                                                             </span>
-                                                            {biz.averageRating}{" "}
+                                                            <Rating
+                                                                value={
+                                                                    biz.averageRating
+                                                                }
+                                                            />
                                                         </div>
                                                     </div>
                                                 </div>
