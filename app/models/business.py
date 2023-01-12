@@ -18,7 +18,7 @@ class Business(db.Model):
     biz_owner = db.relationship("User", back_populates="biz")
     biz_question = db.relationship('Question', back_populates='question_biz', cascade='all, delete')
     biz_review = db.relationship('Review', back_populates='review_biz', cascade='all, delete')
-    food_menu = db.relationship('Menu', back_populates="biz_food")
+    food_menu = db.relationship('Menu', back_populates="biz_food", cascade='all, delete')
 
 
     def __repr__(self):
@@ -45,7 +45,7 @@ class Business(db.Model):
             # "ownerFirstName": self.biz_owner.to_dict_basic()['first_name'],
             "averageRating": avg,
             "numberOfReviews": len([reviews.to_dict() for reviews in self.biz_review]),
-
+            "reviews": [reviews.to_dict() for reviews in self.biz_review],
             # "username": self.biz_owner.to_dict_basic()['username']
 
         }
@@ -53,11 +53,11 @@ class Business(db.Model):
     def to_dict_basic(self):
         return {
             "id": self.id,
-            "body": self.body,
-            "rating": self.rating,
+            "name": self.name,
+            "address1": self.address1,
+            "address2": self.address2,
+            "city": self.city,
+            "state": self.state,
             "image": self.image,
-            "userId": self.user_id,
-            "businessId": self.business_id
-
 
         }

@@ -1,18 +1,57 @@
 .biz-preview {
-    border: solid red;
-    grid-gap: 1.5vw;
+    /* border: solid red; */
+    margin: auto;
+
     display: grid;
-    font-size: 14px;
-    gap: 1.5vw;
-    grid-template-columns: repeat(4, 2fr);
-    justify-content: space-between;
+    width: 1000px;
+
+    grid-template-columns: repeat(3, 3fr);
+
     margin-top: 35px;
 }
 
-.biz-preview-container {
-    margin-left: 35px;
-    margin-right: 45px;
-    height: 100vh;
+.biz-container {
+    /* border: solid purple; */
+    display: grid;
+    /* grid-template-rows: max-content 20px 1fr; */
+    margin: 5px;
+    width: 315px;
+    overflow: hidden;
+    box-shadow: 0px 0px 15px -5px;
+}
+.header-card {
+    /* border: solid red; */
+    border-bottom: 3px solid #bbb;
+}
+
+.image-container img {
+    /* border: solid blue; */
+    overflow: hidden;
+    height: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.image-container {
+    border-bottom: 3px solid #bbb;
+    /* border: solid green; */
+}
+.biz-content {
+    margin: 0.5rem;
+    margin-top: 0.3rem;
+    /* border: solid yellow; */
+}
+
+.reviews {
+    /* border: solid brown; */
+    display: flex;
+    gap: 10px;
+    padding-top: 5px;
+    /* justify-content: space-around; */
+}
+
+.biz-name {
+    /* border: solid black; */
 }
 
 .biz-img {
@@ -26,4 +65,47 @@
 .image-container img {
     overflow: hidden;
     height: 200px;
+}
+
+.biz-name {
+    margin-bottom: 0.5rem;
+}
+
+.actual-review {
+    /* background-color: blue; */
+    padding-bottom: 15px;
+}
+
+.biz-review-info {
+    /* background-color: yellow; */
+    padding-top: 5px;
+    text-align: center;
+}
+
+.first-review {
+    padding-top: 20px;
+    padding-left: 5px;
+    padding: 5 px;
+}
+
+.no-review-container {
+    /* border: solid yellow; */
+    height: 10cm;
+    overflow: hidden;
+}
+
+.biz-name-no-review {
+    margin-bottom: 0.5rem;
+    padding-top: 25px;
+    padding-left: 5px;
+}
+
+.image-container-no-review img {
+    overflow: hidden;
+    height: 230px;
+}
+
+.header {
+    text-align: center;
+    padding-top: 50px;
 }

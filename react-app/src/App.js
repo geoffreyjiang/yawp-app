@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
 import NavBar from "./components/NavBar/NavBar";
@@ -17,9 +17,15 @@ import AllQuestions from "./components/Questions";
 import MenuItems from "./components/Menu";
 import AskQuestion from "./components/Questions/questionForm";
 import AddItem from "./components/Menu/menuForm";
+import ViewBiz from "./components/ViewBiz";
+import EditListingFormPage from "./components/Form/EditListForm";
+import { Redirect } from "react-router-dom";
+import CreateBiz from "./components/Form/CreateBizForm";
 function App() {
     const [loaded, setLoaded] = useState(false);
     const dispatch = useDispatch();
+    const biz = useSelector((store) => store.business);
+    const user = useSelector((state) => state.session.user);
 
     useEffect(() => {
         (async () => {
@@ -48,6 +54,20 @@ function App() {
                 <ProtectedRoute path="/users/:userId" exact={true}>
                     <User />
                 </ProtectedRoute>
+                <ProtectedRoute path="/biz" exact={true}>
+                    <CreateBiz />
+                </ProtectedRoute>
+                <ProtectedRoute path="/biz/:bizId/edit" exact={true}>
+                    {user?.id == biz?.userId ? (
+                        <EditListingFormPage />
+                    ) : (
+                        <Redirect to="/" />
+                    )}
+                </ProtectedRoute>
+                <ProtectedRoute path="/biz/:bizId" exact={true}>
+                    <ViewBiz />
+                </ProtectedRoute>
+
                 <Route path="/" exact={true}>
                     <AllBiz />
                 </Route>

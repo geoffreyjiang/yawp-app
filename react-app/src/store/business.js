@@ -74,7 +74,7 @@ export const createBusiness = (bizData) => async (dispatch) => {
     }
 };
 
-export const editBusiness = (bizData) => async (dispatch) => {
+export const editBusiness = (bizId, bizData) => async (dispatch) => {
     const response = await fetch(`/api/biz/${bizData.id}`, {
         method: "PUT",
         headers: {
@@ -88,12 +88,14 @@ export const editBusiness = (bizData) => async (dispatch) => {
     }
 };
 
-export const removeBusiness = (bizData) => async (dispatch) => {
-    const response = await fetch(`/api/biz/${bizData.id}`, {
+export const removeBusiness = (bizId) => async (dispatch) => {
+    console.log(bizId, "bizId for delete biz");
+    const response = await fetch(`/api/biz/${bizId}`, {
         method: "DELETE",
     });
-    await response.json();
-    dispatch(deleteBusiness(bizData.id));
+    if (response.ok) {
+        dispatch(deleteBusiness(bizId));
+    }
 };
 
 export default function businessReducer(state = {}, action) {
