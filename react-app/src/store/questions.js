@@ -24,8 +24,8 @@ const removeQuestion = (questionId) => ({
     questionId,
 });
 
-export const getQuestions = (bizId) => async (dispatch) => {
-    const response = await fetch(`/api/biz/${bizId}/reviews`);
+export const getQuestions = (id) => async (dispatch) => {
+    const response = await fetch(`/api/biz/${id}/questions`);
     if (response.ok) {
         const questions = await response.json();
         dispatch(loadQuestions(questions));
@@ -41,7 +41,10 @@ export const getQuestions = (bizId) => async (dispatch) => {
 // }
 
 export const postQuestion = (bizId, qData) => async (dispatch) => {
-    const response = await fetch(`/api/biz/${bizId}/reviews`, {
+    console.log("QUESTION THUNK", bizId);
+    console.log("QUESTION THUNK", qData);
+
+    const response = await fetch(`/api/biz/${bizId}/questions`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

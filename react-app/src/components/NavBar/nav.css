@@ -1,0 +1,44 @@
+/* .list-item {
+    justify-content: end;
+    list-style: none;
+    align-items: center;
+    text-decoration: none;
+} */
+
+/* ul > .list-item > .list-nav {
+    color: red;
+} */
+
+/* button {
+    display: flex;
+    justify-content: end;
+} */
+
+.fa-brands {
+    margin-left: 50px;
+}
+
+.nav-bar-container {
+    background-color: transparent;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+ul {
+    list-style: none;
+    /* position: fixed; */
+    display: flex;
+    margin-right: 20px;
+    /* align-items: center; */
+    /* justify-content: space-between; */
+}
+
+li {
+    margin-right: 10px;
+}
+/*
+ul > .list-item > .list-nav {
+    display: inline-block;
+} */

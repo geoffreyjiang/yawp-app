@@ -19,5 +19,4 @@ class Menu(db.Model):
             "name": self.name,
             "price": self.price,
             "businessId": self.business_id,
-
         }

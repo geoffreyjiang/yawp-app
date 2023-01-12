@@ -15,10 +15,11 @@ class Question(db.Model):
     question_biz = db.relationship("Business", back_populates="biz_question")
     question_answer = db.relationship("Answer", back_populates="answer_question")
 
-def to_dict(self):
-    return {
+    def to_dict(self):
+        return {
         "id": self.id,
-        "user_id": self.user_id,
-        "business_id": self.business_id,
-        "body": self.body
+        "userId": self.user_id,
+        "businessId": self.business_id,
+        "body": self.body,
+        "username": self.question_owner.to_dict()['username'],
     }

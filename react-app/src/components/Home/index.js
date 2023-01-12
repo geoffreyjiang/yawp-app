@@ -4,7 +4,11 @@ import { useHistory } from "react-router-dom";
 import { getBusinesses, getBusinessId } from "../../store/business";
 import { getQuestions } from "../../store/questions";
 import { getSelectedBizReviews } from "../../store/reviews";
+<<<<<<< HEAD
 import ReviewForm from "../ReviewForm";
+=======
+import { getMenu } from "../../store/menu";
+>>>>>>> Navbar_component
 import "./index.css";
 const AllBiz = () => {
     const history = useHistory();
@@ -39,10 +43,16 @@ const AllBiz = () => {
                             <button
                                 onClick={() => {
                                     history.push(`/biz/${biz.id}`);
+<<<<<<< HEAD
                                     // dispatch(getBusinessId(biz.id));
                                     // dispatch(getSelectedBizReviews(biz.id));
                                     <ReviewForm />
                                     // dispatch(getQuestions(biz.id));
+=======
+                                    dispatch(getBusinessId(biz.id));
+                                    dispatch(getSelectedBizReviews(biz.id));
+                                    dispatch(getQuestions(biz.id));
+>>>>>>> Navbar_component
                                 }}
                             >
                                 View Business

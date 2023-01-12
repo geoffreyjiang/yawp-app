@@ -1,8 +1,13 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
+<<<<<<< HEAD
 from app.models import Business, db, Review, Menu
 from app.forms import BizForm
 from app.forms import ReviewForm
+=======
+from app.models import Business, db, Review, Menu, Question
+from app.forms import BizForm, QuestionForm, MenuForm
+>>>>>>> Navbar_component
 
 biz_routes = Blueprint('biz', __name__)
 
@@ -73,7 +78,11 @@ def delete_biz(id):
 
 # Get the menu by its ID
 @biz_routes.route("/<int:id>/menu")
+<<<<<<< HEAD
 def questions_by_id(id):
+=======
+def menu_by_id(id):
+>>>>>>> Navbar_component
 
     menus = Menu.query.filter(Menu.business_id == id).all()
 
@@ -82,15 +91,20 @@ def questions_by_id(id):
 
 # Create a new menu item
 @biz_routes.route("/<int:id>/menu", methods=["POST"])
-def create_new_menu_item():
-
-    menu_data = request.json
-
-    new_menu = Menu(**menu_data, user_id=current_user.id)
-
+@login_required
+def create_new_menu_item(id):
+    form = MenuForm()
+    new_menu = Menu(
+        name = form.data['name'],
+        price = form.data['price'],
+        business_id = id
+    )
     db.session.add(new_menu)
     db.session.commit()
+<<<<<<< HEAD
 
+=======
+>>>>>>> Navbar_component
     return new_menu.to_dict()
 
 #Get Reviews Route
@@ -100,6 +114,7 @@ def bizReviews(id):
 
     return {review.id: review.to_dict() for review in reviews}
 
+<<<<<<< HEAD
 @biz_routes.route('/<int:id>/reviews', methods=['POST'])
 @login_required
 def postReview(id):
@@ -117,3 +132,30 @@ def postReview(id):
     db.session.add(review)
     db.session.commit()
     return review.to_dict()
+=======
+@biz_routes.route("/<int:id>/questions")
+def questions_by_id(id):
+
+    questions = Question.query.filter(Question.business_id == id).all()
+
+    return {question.id: question.to_dict() for question in questions}
+
+@biz_routes.route('/<int:id>/questions', methods=['POST'])
+@login_required
+def post_question(id):
+    current_user_id = int(current_user.get_id())
+    form = QuestionForm()
+
+    new_question = Question(
+        user_id = current_user_id,
+        business_id = id,
+        body = form.data['body']
+    )
+
+
+    db.session.add(new_question)
+    db.session.commit()
+
+
+    return new_question.to_dict()
+>>>>>>> Navbar_component
