@@ -4,6 +4,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { addReview } from "../../store/reviews";
 import { getBusinesses } from "../../store/business";
 import { editMyReview } from "../../store/reviews";
+import { deleteMyReview } from "../../store/reviews";
 
 function EditReview() {
     const history = useHistory()
@@ -16,6 +17,12 @@ function EditReview() {
     const [rating, setRating] = useState(review.rating)
     const [userId, setUserId] = useState(sessionUser?.id)
 
+    const deleteReview = (e) => {
+        e.preventDefault();
+        dispatch(deleteMyReview(review.id))
+        alert("Review successfully removed!")
+        history.push('/')
+    }
     useEffect(() => {
         dispatch(getBusinesses())
     }, [dispatch])
@@ -63,6 +70,9 @@ function EditReview() {
                     </input>
                     <button className="button-1" type=" submit">
                         Update Review
+                    </button>
+                    <button className="button-1" onClick={(e) => deleteReview(e)}>
+                        Delete Review
                     </button>
                 </form>
 
