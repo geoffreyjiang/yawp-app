@@ -1,4 +1,4 @@
-from flask import Blueprint, redirect
+from flask import Blueprint, redirect, request
 from app.models import Review, db
 from flask_login import login_required, current_user
 from app.forms import ReviewForm
@@ -22,15 +22,18 @@ def deleteReview(id):
         return redirect(f'/biz/{id}')
 
 
-@review_route.route('/<int:id>', methods=['PUT'])
+@review_route.route('/<int:id>', methods=['PATCH'])
 def updateReview(id):
-    review_edit = Review.query.get(id)
 
     form = ReviewForm()
-    review_edit.body = form.data['body']
-    review_edit.rating = form.data['rating']
-    review_edit.image = form.data['image']
+    review = Review.query.get(id)
+    print(form.data, "<=== FORM DATA")
+    print(form.data['body'], "<=== FORM DATA BODY")
+    review.body = form.data['body'],
+    review.rating = form.data['rating'],
+    review.image = form.data['image']
 
+    print(review, "<=== REVIEW API BACKEND DATA")
+        # form.populate_obj(review)
     db.session.commit()
-
-    return review_edit.to_dict()
+    return review.to_dict_basic()

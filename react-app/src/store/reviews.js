@@ -75,8 +75,10 @@ export const deleteMyReview = (reviewId) => async (dispatch) => {
 // Edit a Review
 export const editMyReview =
     (reviewId, editedReviewData) => async (dispatch) => {
+        console.log(reviewId, "<==== REVIEW ID")
+        console.log(editedReviewData, "<=== IN THE STORE")
         const response = await fetch(`/api/reviews/${reviewId}`, {
-            method: "PUT",
+            method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
             },

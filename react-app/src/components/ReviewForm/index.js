@@ -15,6 +15,7 @@ const ReviewForm = () => {
     const bizReviews = useSelector((state) => {
         return Object.values(state.reviews)
     })
+    const userReview = bizReviews?.filter((review) => review?.userId === sessionUser?.id)
 
     useEffect(() => {
         dispatch(getBusinessId(bizId))
@@ -22,10 +23,13 @@ const ReviewForm = () => {
     }, [dispatch, bizId])
 
     console.log(bizReviews[0], "review")
+    console.log(userReview, "<==== USER REVIEW")
     return (
         <div>
             <h1>Reviews</h1>
-            {bizReviews?.filter((review) => review?.userId === sessionUser?.id).length ? <button>Update Review</button> : <button onClick={() => {
+            {userReview.length ? <button onClick={() => {
+                history.push(`/biz/${bizId}/reviews/${userReview[0].id}`)
+            }}>Update Review</button> : <button onClick={() => {
                 history.push(`/biz/${bizId}/reviews`);
                 <PostReview user={sessionUser} />
             }}>Create Review</button>}

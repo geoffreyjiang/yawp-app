@@ -16,6 +16,8 @@ class Review(db.Model):
     review_biz = db.relationship('Business', back_populates="biz_review")
     review_owner = db.relationship("User", back_populates="reviews")
 
+    def __repr__(self):
+        return f"<Review id: {self.id}, Biz Id: {self.business_id}, Rating: {self.rating}, body: {self.body}, image: {self.image}>"
 
 
     def to_dict(self):
@@ -28,3 +30,13 @@ class Review(db.Model):
         "body": self.body,
         "firstName": self.review_owner.to_dict()['firstName']
     }
+
+    def to_dict_basic(self):
+        return {
+        "id": self.id,
+        "businessId": self.business_id,
+        "userId": self.user_id,
+        "image": self.image,
+        "rating": self.rating,
+        "body": self.body
+        }

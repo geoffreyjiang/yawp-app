@@ -3,13 +3,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { addReview } from "../../store/reviews";
 import { getBusinesses } from "../../store/business";
+import { editMyReview } from "../../store/reviews";
 
-function EditReview({ user }) {
+function EditReview() {
+    const history = useHistory()
     const dispatch = useDispatch()
-    const [body, setBody] = useState("")
-    const [rating, setRating] = useState(1)
-    const [userId, setUserId] = useState(user?.id)
+    const sessionUser = useSelector((state) => state.session.user)
     const { bizId } = useParams()
+    const { reviewId } = useParams()
+    const review = useSelector((state) => state.reviews[reviewId])
+    const [body, setBody] = useState(review.body)
+    const [rating, setRating] = useState(review.rating)
+    const [userId, setUserId] = useState(sessionUser?.id)
 
     useEffect(() => {
         dispatch(getBusinesses())
@@ -18,18 +23,21 @@ function EditReview({ user }) {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        if (user) {
-            setUserId(user?.id)
+        if (sessionUser) {
+            setUserId(sessionUser?.id)
         }
 
         const payload = {
-            bizId,
-            userId,
-            body
+            userId: userId,
+            businessId: bizId,
+            body: body,
+            rating: rating,
+            image: null
         }
-        const createdReview = dispatch(addNewReview(bizId, payload))
-        if (createdReview) {
-            alert("Comment successfully added!")
+        console.log(payload, "<== EDIT PAYLOAD")
+        const editedReview = dispatch(editMyReview(reviewId, payload))
+        if (editedReview) {
+            alert("Review successfully updated!")
             setBody("")
             history.push(`/biz/${bizId}`)
         }
