@@ -1,13 +1,10 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
-<<<<<<< HEAD
 from app.models import Business, db, Review, Menu
 from app.forms import BizForm
 from app.forms import ReviewForm
-=======
 from app.models import Business, db, Review, Menu, Question
 from app.forms import BizForm, QuestionForm, MenuForm
->>>>>>> Navbar_component
 
 biz_routes = Blueprint('biz', __name__)
 
@@ -78,11 +75,7 @@ def delete_biz(id):
 
 # Get the menu by its ID
 @biz_routes.route("/<int:id>/menu")
-<<<<<<< HEAD
-def questions_by_id(id):
-=======
 def menu_by_id(id):
->>>>>>> Navbar_component
 
     menus = Menu.query.filter(Menu.business_id == id).all()
 
