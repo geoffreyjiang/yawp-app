@@ -1,4 +1,4 @@
-from .db import db, environment, SCHEMA
+from .db import db, environment, SCHEMA, add_prefix_for_prod
 
 class Business(db.Model):
     __tablename__ = 'businesses'
@@ -13,7 +13,7 @@ class Business(db.Model):
     city = db.Column(db.String, nullable=False)
     state = db.Column(db.String, nullable=False)
     image = db.Column(db.String, nullable=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
 
     biz_owner = db.relationship("User", back_populates="biz")
     biz_question = db.relationship('Question', back_populates='question_biz', cascade='all, delete')
