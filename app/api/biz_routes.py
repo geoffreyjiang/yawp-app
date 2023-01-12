@@ -94,10 +94,6 @@ def create_new_menu_item(id):
     )
     db.session.add(new_menu)
     db.session.commit()
-<<<<<<< HEAD
-
-=======
->>>>>>> Navbar_component
     return new_menu.to_dict()
 
 #Get Reviews Route
@@ -107,7 +103,6 @@ def bizReviews(id):
 
     return {review.id: review.to_dict() for review in reviews}
 
-<<<<<<< HEAD
 @biz_routes.route('/<int:id>/reviews', methods=['POST'])
 @login_required
 def postReview(id):
@@ -125,7 +120,6 @@ def postReview(id):
     db.session.add(review)
     db.session.commit()
     return review.to_dict()
-=======
 @biz_routes.route("/<int:id>/questions")
 def questions_by_id(id):
 
@@ -151,4 +145,3 @@ def post_question(id):
 
 
     return new_question.to_dict()
->>>>>>> Navbar_component
