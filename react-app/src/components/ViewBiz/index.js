@@ -48,12 +48,11 @@ const ViewBiz = () => {
     // console.log(bizId, "line 54 SINGLE BIZ");
     return (
         <>
-                <h1 className="biz-detail">Biz Details</h1>
-                <h3 className="biz-detail">{biz.name}</h3>
-                <h3 className="biz-detail">{biz.username}</h3>
-                <h2 className="biz-detail">
-                    Location: {biz.address1}, {biz.city}, {biz.state}
-                    {user.id == biz.userId ? (
+            {/* <h1 className="biz-detail">Biz Details</h1> */}
+            <h2 className="biz-detail">{biz.name}</h2>
+            <h3 className="biz-detail">{biz.username}</h3>
+            <h2 className="biz-detail">
+                {user.id == biz.userId ? (
                     <>
                         <button onClick={() => editListingOnClick(biz.id)}>
                             Edit Biz Details
@@ -63,13 +62,17 @@ const ViewBiz = () => {
                         </button>
                     </>
                 ) : null}
-                </h2>
-            <div className="biz-detail-container">
+            </h2>
+            <div className="biz-detail">
                 <h4>
                     <img className="biz-img" src={biz.image}></img>
                 </h4>
             </div>
-
+            <div className="biz-detail">
+                <h3>
+                    Location: {biz.address1}, {biz.city}, {biz.state}
+                </h3>
+            </div>
         </>
     );
 };

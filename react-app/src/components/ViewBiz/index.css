@@ -11,9 +11,14 @@
 .biz-detail {
     display: flex;
     justify-content: center;
+    background-repeat: repeat-x;
 }
 
 button {
     justify-content: center;
     display: flex;
+}
+
+.biz-img {
+    background-repeat: repeat-x;
 }
