@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { addNewReview } from "../../store/reviews";
+import "./CreateReview.css"
+import Rating from "../Home/Rating";
 
 function PostReview() {
     const history = useHistory()
@@ -11,7 +13,6 @@ function PostReview() {
     const [rating, setRating] = useState(1)
     const [userId, setUserId] = useState(sessionUser.id)
     const { bizId } = useParams()
-
     const handleSubmit = async (e) => {
         e.preventDefault()
 
@@ -38,9 +39,10 @@ function PostReview() {
     return (
         <>
             <section className="new-review">
-                <form className="make-new-review" onSubmit={handleSubmit}>
-                    <h3 className="newReview">New Review</h3>
+                <form class="make-new-review" className="make-new-review" onSubmit={handleSubmit}>
+                    <h3 className="review-element">New Review</h3>
                     <input
+                        class="review-element"
                         type="range"
                         name="rating"
                         value={rating}
@@ -48,13 +50,16 @@ function PostReview() {
                         max="5"
                         onChange={(e) => setRating(e.target.value)}>
                     </input>
+                    <label class="review-element">{rating}</label>
+
                     <input
+                        class="review-element"
                         type="textarea"
                         name="body"
                         value={body}
                         onChange={(e) => setBody(e.target.value)}>
                     </input>
-                    <button className="button-1" type=" submit">
+                    <button className="review-element" type=" submit">
                         Post Review
                     </button>
                 </form>

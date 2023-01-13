@@ -4,6 +4,9 @@ import { useParams, useHistory } from 'react-router-dom'
 import businessReducer, { getBusinessId } from '../../store/business'
 import { getSelectedBizReviews } from '../../store/reviews'
 import PostReview from './CreateReview'
+import './Review.css'
+import Rating from '../Home/Rating'
+
 const ReviewForm = () => {
     const [userHasReview, setUserHasReview] = useState(false)
     const history = useHistory()
@@ -25,14 +28,9 @@ const ReviewForm = () => {
     console.log(bizReviews[0], "review")
     console.log(userReview, "<==== USER REVIEW")
     return (
-        <div>
+        <div className='review'>
             <h1>Reviews</h1>
-            {userReview.length ? <button onClick={() => {
-                history.push(`/biz/${bizId}/reviews/${userReview[0].id}`)
-            }}>Update Review</button> : <button onClick={() => {
-                history.push(`/biz/${bizId}/reviews`);
-                <PostReview user={sessionUser} />
-            }}>Create Review</button>}
+
             {/* {bizReviews?.map((review) => {
                 if (review?.userId === sessionUser?.id) {
                     return (
@@ -59,13 +57,20 @@ const ReviewForm = () => {
                         return (
                             <div class="reviews" key={review?.id}>
                                 <p className="reviewBody">{review?.body}</p>
-                                <h2 className="rating">{review?.rating}</h2>
+                                <h2 className="rating">{<Rating value={review?.rating} />}</h2>
                                 <h4 className="reviewUser">{review?.firstName}</h4>
                             </div>
                         )
                     })
                 }
             </div>
+
+            {userReview.length ? <button class="review-button" onClick={() => {
+                history.push(`/biz/${bizId}/reviews/${userReview[0].id}`)
+            }}>Update Review</button> : <button class="review-button" onClick={() => {
+                history.push(`/biz/${bizId}/reviews`);
+                <PostReview user={sessionUser} />
+            }}>Create Review</button>}
         </div>
 
 

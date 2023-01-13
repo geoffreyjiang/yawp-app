@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
-label {
+.login-label {
     font-family: 'Roboto', sans-serif;
     margin: 50px;
     font-size: 15px;
-    font-style: bold;
+    font-style: bold
 }
 
 form {
@@ -13,7 +13,7 @@ form {
     margin: 50px;
 }
 
-button {
+.login {
     margin: 20px;
     background-color: #FF2E63;
     border-radius: 8px;
