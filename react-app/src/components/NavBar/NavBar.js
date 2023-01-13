@@ -1,25 +1,32 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import LogoutButton from "../auth/LogoutButton";
 import { useSelector } from "react-redux";
 import "./nav.css";
 const NavBar = () => {
     const sessionUser = useSelector((state) => state.session.user);
-
+    const history = useHistory();
     let session;
 
     if (sessionUser) {
         session = (
             <ul>
                 <li className="list-item">
-                    <NavLink className="list-nav" to="/" exact={true}>
+                    {/* <NavLink className="list-nav" to="/" exact={true}>
                         <i class="fa-solid fa-house fa-2x"></i>
-                    </NavLink>
+
+                    </NavLink> */}
+                    <button onClick={() => history.push("/")}>
+                        <i class="fa-solid fa-house fa-2x"></i>
+                    </button>
                 </li>
                 <li className="list-item">
-                    <NavLink className="list-nav" to="/biz" exact={true}>
+                    {/* <NavLink className="list-nav" to="/biz" exact={true}>
                         <i class="fa-solid fa-plus fa-2x"></i>
-                    </NavLink>
+                    </NavLink> */}
+                    <button onClick={() => history.push("/biz")}>
+                        <i class="fa-solid fa-plus fa-2x"></i>
+                    </button>
                 </li>
                 <li className="list-item">
                     <LogoutButton />

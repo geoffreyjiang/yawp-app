@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-
+import AllQuestions from "../Questions";
+import ReviewForm from "../ReviewForm";
+import MenuItems from "../Menu";
 import {
     getBusinessId,
     getBusinesses,
@@ -72,6 +74,17 @@ const ViewBiz = () => {
                 <h3>
                     Location: {biz.address1}, {biz.city}, {biz.state}
                 </h3>
+            </div>
+            <div className="qrm-container">
+                <div className="r-container">
+                    <ReviewForm />
+                </div>
+                <div className="m-container">
+                    <MenuItems />
+                </div>
+                <div className="q-container">
+                    <AllQuestions />
+                </div>
             </div>
         </>
     );

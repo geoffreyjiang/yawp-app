@@ -7,8 +7,8 @@ import "./menu.css";
 
 const AddMenuItem = () => {
     const { bizId } = useParams();
-    const user  = useSelector(state => state.session.user)
-    const bizUser = useSelector(state=> (state.business.userId))
+    const user = useSelector((state) => state.session.user);
+    const bizUser = useSelector((state) => state.business.userId);
     const m = useSelector((store) => {
         return Object.values(store.menu);
     });
@@ -29,23 +29,19 @@ const AddMenuItem = () => {
         );
     });
 
-    console.log(user.id, 'LINE 32')
-    let add
-  if (user.id === bizUser ) {
-    add =  <h3>
-        Menu
-        <Link to={`/biz/${bizId}/menu`}>Add Menu Item</Link>
-        </h3>
-
+    console.log(user.id, "LINE 32");
+    let add;
+    if (user.id === bizUser) {
+        add = (
+            <h3>
+                <Link to={`/biz/${bizId}/menu`}>Add Menu Item</Link>
+            </h3>
+        );
     }
-
-
 
     return (
         <>
-            <h3>
-                Menu
-            </h3>
+            <h3>Menu</h3>
             {add}
             <div className="menu-container">{items}</div>
         </>
