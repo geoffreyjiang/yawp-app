@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { sliderData } from "../Home/slider-data";
+import NavBar from "../NavBar/NavBar";
 import "./ImageSlider.css";
 const ImageSlider = () => {
     const dispatch = useDispatch();
@@ -37,30 +38,35 @@ const ImageSlider = () => {
         setCurrentSlide(0);
     }, [dispatch]);
     return (
-        <div className="slider">
-            {/* <HiArrowLeft className="arrow prev" onClick={prevSlide} />
+        <>
+            <div className="slider">
+                {/* <HiArrowLeft className="arrow prev" onClick={prevSlide} />
              <HiArrowRight className="arrow next" onClick={nextSlide} /> */}
-            {sliderData.map((slide, index) => (
-                <div
-                    className={
-                        index === currentSlide ? "slide current" : "slide"
-                    }
-                    key={index}
-                >
-                    {index === currentSlide && (
-                        <>
-                            <img src={slide.image} />
+                <br></br>
+                <br></br>
+                <br></br>
+                {sliderData.map((slide, index) => (
+                    <div
+                        className={
+                            index === currentSlide ? "slide current" : "slide"
+                        }
+                        key={index}
+                    >
+                        {index === currentSlide && (
+                            <>
+                                <img src={slide.image} />
 
-                            <div className="content">
-                                <h2>{slide.heading}</h2>
-                                <p>{slide.desc}</p>
-                                <hr />
-                            </div>
-                        </>
-                    )}
-                </div>
-            ))}
-        </div>
+                                <div className="content">
+                                    <h2>{slide.heading}</h2>
+                                    <p>{slide.desc}</p>
+                                    <hr />
+                                </div>
+                            </>
+                        )}
+                    </div>
+                ))}
+            </div>
+        </>
     );
 };
 

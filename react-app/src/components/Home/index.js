@@ -6,6 +6,7 @@ import { getQuestions } from "../../store/questions";
 import { getSelectedBizReviews } from "../../store/reviews";
 import Rating from "./Rating";
 import ImageSlider from "./ImageSlider";
+import NavBar from "../NavBar/NavBar";
 import "./index.css";
 const AllBiz = () => {
     const history = useHistory();
@@ -27,6 +28,7 @@ const AllBiz = () => {
     return (
         <>
             <ImageSlider />
+            {/* <NavBar /> */}
             <h1 className="header">Yawp's Recommended Restaurants</h1>
             <div className="biz-preview">
                 {business?.map((biz) => (

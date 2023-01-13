@@ -20,7 +20,9 @@
 
 .nav-bar-container {
     background-color: red;
-    height: 50px;
+    /* position: absolute !important; */
+    /* position: absolute; */
+    height: 55px;
     display: flex;
     position: relative;
     align-items: center;
