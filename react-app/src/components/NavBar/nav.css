@@ -19,7 +19,7 @@
 }
 
 .nav-bar-container {
-    background-color: red;
+    background-color: #FF2E63;
     height: 50px;
     display: flex;
     position: relative;
@@ -39,6 +39,7 @@ ul {
 li {
     margin-right: 10px;
 }
+
 /*
 ul > .list-item > .list-nav {
     display: inline-block;
