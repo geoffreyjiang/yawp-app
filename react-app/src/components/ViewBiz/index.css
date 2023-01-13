@@ -10,6 +10,9 @@
     display: flex;
     justify-content: center;
     margin-left: 25%;
+    margin-top: 3%;
+    border-right: none;
+    border-left: none;
 }
 
 .biz-detail {
@@ -23,8 +26,9 @@
 }
 
 .biz-detail > .biz-img-container {
-    height: 50%;
-    width: 50%;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 50px;
     /* position: inherit; */
 }
 
