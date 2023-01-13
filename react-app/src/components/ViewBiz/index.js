@@ -51,7 +51,7 @@ const ViewBiz = () => {
             {/* <h1 className="biz-detail">Biz Details</h1> */}
             <h2 className="biz-detail">{biz.name}</h2>
             <h3 className="biz-detail">{biz.username}</h3>
-            <h2 className="biz-detail">
+            <h2 className="biz-detail-btns">
                 {user.id == biz.userId ? (
                     <>
                         <button onClick={() => editListingOnClick(biz.id)}>

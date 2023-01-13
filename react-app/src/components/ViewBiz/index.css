@@ -22,3 +22,8 @@ button {
 .biz-img {
     background-repeat: repeat-x;
 }
+
+.biz-detail-btns {
+    justify-content: end;
+    display: flex;
+}
