@@ -19,10 +19,15 @@
 }
 
 .nav-bar-container {
+<<<<<<< HEAD
     background-color: red;
     /* position: absolute !important; */
     /* position: absolute; */
     height: 55px;
+=======
+    background-color: #FF2E63;
+    height: 50px;
+>>>>>>> origin/AS_Login
     display: flex;
     position: relative;
     align-items: center;
@@ -41,6 +46,7 @@ ul {
 li {
     margin-right: 10px;
 }
+
 /*
 ul > .list-item > .list-nav {
     display: inline-block;
