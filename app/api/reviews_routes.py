@@ -19,7 +19,7 @@ def deleteReview(id):
     if review:
         db.session.delete(review)
         db.session.commit()
-        return redirect(f'/biz/{id}')
+        return {"message": "deleted successfully"}
 
 
 @review_route.route('/<int:id>', methods=['PUT'])

@@ -30,7 +30,6 @@ const AddItem = () => {
     };
     return (
         <>
-            <h1>Yo</h1>
             <div className="add-menu-item-container">
                 <form className="menu-form" onSubmit={handleSubmit}>
                     <h2>Add Menu Item</h2>

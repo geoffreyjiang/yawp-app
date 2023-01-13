@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 
 label {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     margin: 50px;
     font-size: 15px;
     font-style: bold;
@@ -15,14 +15,14 @@ form {
 
 button {
     margin: 20px;
-    background-color: #FF2E63;
+    background-color: #ff2e63;
     border-radius: 8px;
     border-style: none;
     box-sizing: border-box;
-    color: #FFFFFF;
+    color: #ffffff;
     cursor: pointer;
     display: inline-block;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 14px;
     font-weight: 500;
     height: 50px;
@@ -41,7 +41,7 @@ button {
     width: 80px;
 }
 
-input[type=text],
+input[type="text"],
 select {
     width: 100%;
     padding: 12px 20px;
@@ -52,7 +52,7 @@ select {
     box-sizing: border-box;
 }
 
-input[type=password],
+input[type="password"],
 select {
     width: 100%;
     padding: 12px 20px;

@@ -16,3 +16,20 @@ h3 {
     align-items: center;
     justify-content: center;
 } */
+form {
+    max-width: 500px;
+    margin: 2rem auto;
+    border: 1px solid;
+    padding: 2rem;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+
+    justify-content: center;
+}
+
+.create-question-container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
