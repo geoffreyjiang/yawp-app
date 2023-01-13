@@ -17,3 +17,9 @@ h3 {
     align-items: center;
     justify-content: center;
 } */
+.qrm-container > .m-container > h3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

@@ -41,11 +41,6 @@ const NavBar = () => {
                         <i class="fa-solid fa-house fa-2x"></i>
                     </NavLink>
                 </li>
-                <li>
-                    <NavLink to="/users" exact={true} className="list-item">
-                        Users
-                    </NavLink>
-                </li>
                 <li className="list-item">
                     <NavLink to="/login" className="list-nav">
                         Login

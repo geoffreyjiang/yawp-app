@@ -50,31 +50,43 @@ const ViewBiz = () => {
     // console.log(bizId, "line 54 SINGLE BIZ");
     return (
         <>
-            {/* <h1 className="biz-detail">Biz Details</h1> */}
-            <h2 className="biz-detail">{biz.name}</h2>
-            <h3 className="biz-detail">{biz.username}</h3>
-            <h2 className="biz-detail-btns">
-                {user.id == biz.userId ? (
-                    <>
-                        <button onClick={() => editListingOnClick(biz.id)}>
-                            Edit Biz Details
-                        </button>
-                        <button onClick={() => deleteListingOnClick(biz.id)}>
-                            Delete Button
-                        </button>
-                    </>
-                ) : null}
-            </h2>
-            <div className="biz-detail">
-                <h4>
-                    <img className="biz-img" src={biz.image}></img>
-                </h4>
+            <div className="view-biz-container">
+                <div className="biz-detail">
+                    <div className="biz-img-container">
+                        <img className="biz-img" src={biz.image}></img>
+                    </div>
+                    <div className="biz-info">
+                        <h1>{biz.name}</h1>
+                        <br></br>
+                        <h3>
+                            Address: {biz.address1},<br></br>
+                            {biz.city}, {biz.state}
+                        </h3>
+                        <h2>
+                            {user.id == biz.userId ? (
+                                <>
+                                    <button
+                                        onClick={() =>
+                                            editListingOnClick(biz.id)
+                                        }
+                                    >
+                                        Edit Biz Details
+                                    </button>
+                                    <button
+                                        onClick={() =>
+                                            deleteListingOnClick(biz.id)
+                                        }
+                                    >
+                                        Delete Button
+                                    </button>
+                                </>
+                            ) : null}
+                        </h2>
+                    </div>
+                    <h3>{biz.username}</h3>
+                </div>
             </div>
-            <div className="biz-detail">
-                <h3>
-                    Location: {biz.address1}, {biz.city}, {biz.state}
-                </h3>
-            </div>
+
             <div className="qrm-container">
                 <div className="r-container">
                     <ReviewForm />

@@ -207,9 +207,6 @@ const AllBiz = () => {
                     </div>
                 ))}
             </div>
-            <div className="create_biz_button">
-                <button onClick={navToCreateBiz}>Register A Business</button>
-            </div>
         </>
     );
 };

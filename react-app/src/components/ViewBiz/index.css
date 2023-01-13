@@ -1,7 +1,45 @@
-.biz-detail-container {
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+
+/* * {
+    font-family: "Fascinate", cursive;4
+} */
+
+.view-biz-container {
+    border: solid 1px;
+    width: 50%;
     display: flex;
     justify-content: center;
+    margin-left: 25%;
 }
+
+.biz-detail {
+    display: flex;
+    justify-content: space-around;
+    /* align-items: center; */
+    /* flex-direction: column; */
+    position: static;
+    margin-left: 10%;
+    margin-top: 5%;
+}
+
+.biz-detail > .biz-img-container {
+    height: 50%;
+    width: 50%;
+    /* position: inherit; */
+}
+
+.biz-detail > .biz-info {
+    /* position: inherit; */
+    margin-right: 200px;
+    height: 30%;
+    width: 30%;
+}
+
+/* .biz-detail > h1 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+} */
 
 /* h1 {
     display: flex;
@@ -9,18 +47,16 @@
 } */
 
 .biz-detail {
-    display: flex;
-    justify-content: center;
-    background-repeat: repeat-x;
+    /* display: flex; */
+    /* justify-content: space-evenly; */
+    font-family: "Roboto", sans-serif;
+
+    /* background-repeat: repeat-x; */
 }
 
 button {
     justify-content: center;
     display: flex;
-}
-
-.biz-img {
-    background-repeat: repeat-x;
 }
 
 .biz-detail-btns {
@@ -42,6 +78,8 @@ button {
 
 .qrm-container {
     display: flex;
+    font-family: "Fascinate", cursive;
+    margin-top: 5%;
     justify-content: space-around;
 }
 
