@@ -29,7 +29,7 @@ const AddMenuItem = () => {
         );
     });
 
-    console.log(user.id, "LINE 32");
+    // console.log(user.id, "LINE 32");
     let add;
     if (user.id === bizUser) {
         add = (

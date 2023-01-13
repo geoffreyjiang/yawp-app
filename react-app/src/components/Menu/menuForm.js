@@ -21,7 +21,7 @@ const AddItem = () => {
             name,
             price,
         };
-        console.log(data);
+        // console.log(data);
         let newItem = dispatch(addMenuItem(bizId, data));
         if (newItem) {
             history.push(`/biz/${bizId}`);

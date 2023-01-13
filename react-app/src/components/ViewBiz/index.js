@@ -19,7 +19,7 @@ const ViewBiz = () => {
     const history = useHistory();
 
     const biz = useSelector((store) => store.business);
-    const store = useSelector((store) => console.log(store, "STORE"));
+    // const store = useSelector((store) => console.log(store, "STORE"));
     const reviews = useSelector((store) => Object.values(store.reviews));
     // console.log(store, "store");
     const questions = useSelector((store) => Object.values(store.questions));

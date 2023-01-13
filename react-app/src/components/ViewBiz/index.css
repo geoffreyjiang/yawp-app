@@ -84,18 +84,23 @@ button {
     display: flex;
     font-family: "Fascinate", cursive;
     margin-top: 5%;
+
     justify-content: space-around;
 }
 
 .r-container {
     border: solid 1px;
     width: 500px;
+    overflow-y: scroll;
+
     height: 200px;
 }
 
 .m-container {
     border: solid 1px;
     width: 500px;
+    overflow-y: scroll;
+
     height: 200px;
 }
 
@@ -103,4 +108,5 @@ button {
     border: solid 1px;
     width: 500px;
     height: 200px;
+    overflow-y: scroll;
 }

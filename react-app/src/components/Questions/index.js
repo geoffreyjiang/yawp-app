@@ -16,7 +16,7 @@ const AllQuestions = () => {
         dispatch(getQuestions(bizId));
     }, [dispatch, bizId]);
 
-    console.log(q);
+    // console.log(q);
     const allQuestions = q.map((questions) => {
         return (
             <div className="question-item">

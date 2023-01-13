@@ -24,7 +24,7 @@ const AllBiz = () => {
     useEffect(() => {
         dispatch(getBusinesses());
     }, [dispatch]);
-    console.log(business, "BUSINESS");
+    //console.log(business, "BUSINESS");
     return (
         <>
             <ImageSlider />
