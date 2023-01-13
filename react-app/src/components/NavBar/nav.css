@@ -19,7 +19,7 @@
 }
 
 .nav-bar-container {
-    background-color: transparent;
+    background-color: red;
     height: 50px;
     display: flex;
     align-items: center;

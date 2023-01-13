@@ -1,0 +1,19 @@
+.biz-detail-container {
+    display: flex;
+    justify-content: center;
+}
+
+/* h1 {
+    display: flex;
+    justify-content: center;
+} */
+
+.biz-detail {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    justify-content: center;
+    display: flex;
+}

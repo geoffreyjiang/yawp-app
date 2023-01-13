@@ -66,9 +66,9 @@ function App() {
                 </ProtectedRoute>
                 <ProtectedRoute path="/biz/:bizId" exact={true}>
                     <ViewBiz />
-                    <AllQuestions />
-                    <MenuItems />
                     <ReviewForm/>
+                    <MenuItems />
+                    <AllQuestions />
                 </ProtectedRoute>
 
                 <Route path="/" exact={true}>
