@@ -41,6 +41,7 @@ def get_biz_by_id(id):
 
 # Edit a Business
 @biz_routes.route("/<int:id>", methods=["PUT"])
+@login_required
 def edit_biz(id):
 
     business = Business.query.get(id)
@@ -61,6 +62,7 @@ def edit_biz(id):
 
 # Delete a business
 @biz_routes.route('/<int:id>', methods=["DELETE"])
+@login_required
 def delete_biz(id):
     data = request.json
     biz_delete = Business.query.get(id)
