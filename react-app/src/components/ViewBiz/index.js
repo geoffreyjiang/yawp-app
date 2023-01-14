@@ -101,15 +101,15 @@ const ViewBiz = () => {
             </div>
 
             <div className="qrm-container">
-                <div className="r-container">
-                    <ReviewForm />
-                </div>
                 <div className="m-container">
                     <MenuItems />
                 </div>
                 <div className="q-container">
                     <AllQuestions />
                 </div>
+            </div>
+            <div class="review_view">
+                <ReviewForm />
             </div>
         </>
     );
