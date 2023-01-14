@@ -21,11 +21,11 @@ const AllQuestions = () => {
         return (
             <div className="question-item">
                 <h4>
-                    {questions.body} by: {questions.username}
+                    {questions.body} - {questions.username}
                 </h4>
-                <Link to={`/question/${questions.id}`}>
-                    Answer this question
-                </Link>
+                <div to={`/question/${questions.id}`}>
+                    Answer this question (Coming Soon)
+                </div>
             </div>
         );
     });

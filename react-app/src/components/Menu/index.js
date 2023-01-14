@@ -21,11 +21,10 @@ const AddMenuItem = () => {
 
     const items = m.map((item) => {
         return (
-            <div className="menu-item-container">
-                <h4>
-                    {item.name}, ${item.price}
-                </h4>
-            </div>
+            <>
+                <h4>{item.name}</h4>
+                <h4 className="item-border">${item.price}</h4>
+            </>
         );
     });
 

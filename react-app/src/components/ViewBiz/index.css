@@ -97,16 +97,22 @@ button {
 }
 
 .m-container {
-    border: solid 1px;
-    width: 500px;
+    margin: 0 auto;
+    display: block;
+    border: 1px solid;
     overflow-y: scroll;
-
+    width: 500px;
+    max-width: auto;
     height: 200px;
 }
 
 .q-container {
-    border: solid 1px;
-    width: 500px;
-    height: 200px;
+    margin: 0 auto;
+    display: block;
+    border: 1px solid;
     overflow-y: scroll;
+    width: 500px;
+    max-width: auto;
+    height: 200px;
+    border-bottom: auto;
 }

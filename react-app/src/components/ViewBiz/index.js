@@ -60,7 +60,8 @@ const ViewBiz = () => {
                         <br></br>
                         <h3>
                             Address: {biz.address1},<br></br>
-                            {biz.city}, {biz.state}
+                            {biz.city}, {biz.state} <br></br>
+                            Average Rating: {biz.averageRating}
                         </h3>
                         <h2>
                             {user.id == biz.userId ? (
