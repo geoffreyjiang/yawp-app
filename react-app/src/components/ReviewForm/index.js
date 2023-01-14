@@ -36,17 +36,15 @@ const ReviewForm = () => {
             <div className="header-review">
                 <h1>Review Section</h1>
 
-                <div className="review-div">
-                    {userReview.length == 0 ? (
-                        <button
-                            onClick={() => {
-                                history.push(`/biz/${bizId}/reviews`);
-                            }}
-                        >
-                            Write A Review
-                        </button>
-                    ) : null}
-                </div>
+                {userReview.length == 0 ? (
+                    <button
+                        onClick={() => {
+                            history.push(`/biz/${bizId}/reviews`);
+                        }}
+                    >
+                        Write A Review
+                    </button>
+                ) : null}
             </div>
             <section className="reviews">
                 <div className="reviews-box-container">
