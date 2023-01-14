@@ -13,6 +13,7 @@ import { getQuestions } from "../../store/questions";
 import { useHistory, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import "./index.css";
+import Rating from "../Home/Rating";
 const ViewBiz = () => {
     const dispatch = useDispatch();
     const { bizId } = useParams();
@@ -59,9 +60,8 @@ const ViewBiz = () => {
                         <h1>{biz.name}</h1>
                         <br></br>
                         <h3>
-                            Address: {biz.address1},{biz.city}, {biz.state}{" "}
-                            <br></br>
-                            Average Rating: {biz.averageRating}
+                            {biz.address1},{biz.city}, {biz.state} <br></br>
+                            <Rating value={biz.averageRating} />
                         </h3>
                         <h2>
                             {user.id == biz.userId ? (
