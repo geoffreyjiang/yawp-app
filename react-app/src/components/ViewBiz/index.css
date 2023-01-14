@@ -97,7 +97,7 @@ button {
 }
 
 .m-container {
-    margin: 0 auto;
+    /* margin: 0 auto; */
     display: block;
     border: 1px solid;
     overflow-y: scroll;
@@ -107,7 +107,7 @@ button {
 }
 
 .q-container {
-    margin: 0 auto;
+    /* margin: 0 auto; */
     display: block;
     border: 1px solid;
     overflow-y: scroll;
