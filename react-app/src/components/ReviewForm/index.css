@@ -1,0 +1,83 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+}
+.header-review {
+    /* padding-left: 140px; */
+    /* display: flex; */
+    /* justify-content: space-between; */
+    align-items: center;
+
+    text-align: center;
+    width: 25%;
+}
+
+.review-div {
+    margin-left: 380px;
+    width: 30%;
+    overflow: hidden;
+    /* border: 3px solid green; */
+    /* padding: 10px; */
+}
+.testimonials {
+    display: flex;
+
+    /* justify-content: center; */
+    /* align-items: left;
+    flex-direction: column; */
+
+    margin-left: 15px;
+    width: 25%;
+    /* background-color: pink; */
+    height: auto;
+}
+.testimonial-box-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /* background-color: black; */
+    width: 100%;
+}
+
+.testimonial-box {
+    background-color: #ffffff;
+    width: 600px;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.6);
+    padding: 5px;
+    margin: 5px;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+}
+
+.name-user {
+    align-items: center;
+    flex-direction: column;
+}
+
+.name-user strong {
+    color: #3d3d3d;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.box-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+    margin-bottom: 20px;
+}
+
+.comment-section {
+    display: flex;
+    justify-content: space-between;
+    /* background-color: purple; */
+    width: 90%;
+}

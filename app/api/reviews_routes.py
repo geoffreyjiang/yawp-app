@@ -16,10 +16,11 @@ review_route = Blueprint('reviews', __name__, url_prefix='/reviews')
 @review_route.route('/<int:id>', methods=['DELETE'])
 def deleteReview(id):
     review = Review.query.get(id)
-    if review:
-        db.session.delete(review)
-        db.session.commit()
-        return redirect(f'/biz/{id}')
+  
+    db.session.delete(review)
+    db.session.commit()
+    
+    return {"message": "deleted successfully"}
 
 
 @review_route.route('/<int:id>', methods=['PUT'])

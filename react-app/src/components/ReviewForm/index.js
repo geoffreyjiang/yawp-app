@@ -4,6 +4,14 @@ import { useParams, useHistory } from "react-router-dom";
 import businessReducer, { getBusinessId } from "../../store/business";
 import { getSelectedBizReviews } from "../../store/reviews";
 import PostReview from "./CreateReview";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams, useHistory } from "react-router-dom";
+import { getBusinessId } from "../../store/business";
+import { getSelectedBizReviews } from "../../store/reviews";
+import "./index.css";
+import Rating from "../Home/Rating";
+
 const ReviewForm = () => {
     const [userHasReview, setUserHasReview] = useState(false);
     const history = useHistory();
@@ -62,9 +70,9 @@ const ReviewForm = () => {
                         <button
                             onClick={() => {
                                 history.push(`/biz/${bizId}/reviews`);
-                                <PostReview user={sessionUser} />
-                            }}>
-                            Create Review
+                            }}
+                        >
+                            Write A Review
                         </button>
                     )
                 }
