@@ -7,7 +7,7 @@ export const sliderData = [
     {
         image: "https://media.timeout.com/images/105843871/750/422/image.jpg",
         heading: "Learn",
-        desc: '"Once I landed in Los Angeles, I used Yawp to find the bests resturants in the area! -Yawp user"',
+        desc: '"Once I landed in Los Angeles, I used Yawp to find the best resturants in the area! -Yawp user"',
     },
     {
         image: "https://thebeaconauburn.com/wp-content/uploads/2021/08/A-Group-of-People-Eating-Food-at-a-Restaurant.jpeg",
