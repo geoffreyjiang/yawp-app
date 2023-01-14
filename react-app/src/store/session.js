@@ -70,7 +70,8 @@ export const logout = () => async (dispatch) => {
 };
 
 
-export const signUp = (username, email, password) => async (dispatch) => {
+export const signUp = (username, email, firstName, lastName, password, phoneNumber, profilePic, businessOwner) => async (dispatch) => {
+  console.log(businessOwner, "<=== SAMPLE DATA")
   const response = await fetch('/api/auth/signup', {
     method: 'POST',
     headers: {
@@ -79,12 +80,20 @@ export const signUp = (username, email, password) => async (dispatch) => {
     body: JSON.stringify({
       username,
       email,
+      "first_name": firstName,
+      "last_name": lastName,
       password,
+      "phone_number": phoneNumber,
+      "profile_pic": profilePic,
+      "business_owner": businessOwner
     }),
   });
 
+  console.log(response, "<== RESPONSE")
+
   if (response.ok) {
     const data = await response.json();
+    console.log(data, "<=== PAYLOAD DATA")
     dispatch(setUser(data))
     return null;
   } else if (response.status < 500) {
