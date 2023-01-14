@@ -114,28 +114,6 @@ const AllBiz = () => {
                                                     ]?.body
                                                 }
                                             </div>
-                                            <div>
-                                                <h4 className="biz-review-info">
-                                                    Biz Review Info
-                                                </h4>
-                                                <div className="reviews">
-                                                    <div>
-                                                        <span
-                                                            style={{
-                                                                fontWeight:
-                                                                    "bold",
-                                                            }}
-                                                        >
-                                                            Biz Avg Review:{" "}
-                                                        </span>
-                                                        <Rating
-                                                            value={
-                                                                biz.averageRating
-                                                            }
-                                                        />
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                     </>
                                 ) : (
@@ -175,9 +153,9 @@ const AllBiz = () => {
                                                 Be the first to leave a review
                                                 for {biz?.name}!
                                             </div>
-                                            <div className="image-review">
+                                            {/* <div className="image-review">
                                                 <img src="https://starvalleyhealth.org/wp-content/uploads/2021/04/5star.png" />
-                                            </div>
+                                            </div> */}
                                         </div>
                                     </div>
                                 )}
