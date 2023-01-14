@@ -16,7 +16,7 @@ export const sliderData = [
     },
     {
         image: "https://assets.bonappetit.com/photos/610aa6ddc50e2f9f7c42f7f8/master/pass/Savage-2019-top-50-busy-restaurant.jpg",
-        heading: "Info you can trust",
+        heading: "Information you can trust",
         desc: "Yawp!",
     },
 ];

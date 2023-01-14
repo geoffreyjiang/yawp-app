@@ -5,7 +5,7 @@ import "./ImageSlider.css";
 const ImageSlider = () => {
     const dispatch = useDispatch();
     const [currentSlide, setCurrentSlide] = useState(0);
-    const autoScroll = false;
+    const autoScroll = true;
     let slideInterval;
     let intervalTime = 6000;
     const slideLength = sliderData.length;

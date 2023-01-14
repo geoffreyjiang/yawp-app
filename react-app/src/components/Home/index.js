@@ -13,17 +13,14 @@ const AllBiz = () => {
     const business = useSelector((store) => {
         return Object.values(store.business);
     });
-    let test;
-    // business.map((biz) => {
-    //     console.log(biz.reviews[biz.reviews.length - 1], "TESTING ARRAY FUNC");
-    // });
+
     const navToCreateBiz = () => {
         history.push("/biz");
     };
     useEffect(() => {
         dispatch(getBusinesses());
     }, [dispatch]);
-    console.log(business, "BUSINESS");
+
     return (
         <>
             <ImageSlider />
