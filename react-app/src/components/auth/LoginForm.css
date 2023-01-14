@@ -1,19 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
-.login-label {
+label {
     font-family: 'Roboto', sans-serif;
     margin: 50px;
     font-size: 15px;
-    font-style: bold
+    font-style: bold;
 }
 
-form {
+.login-logout form {
     display: flex;
     justify-content: space-evenly;
     margin: 50px;
 }
 
-.login {
+.login button {
     margin: 20px;
     background-color: #FF2E63;
     border-radius: 8px;
@@ -41,7 +41,7 @@ form {
     width: 80px;
 }
 
-input[type=text],
+.login input[type=text],
 select {
     width: 100%;
     padding: 12px 20px;
@@ -52,7 +52,7 @@ select {
     box-sizing: border-box;
 }
 
-input[type=password],
+.password input[type=password],
 select {
     width: 100%;
     padding: 12px 20px;
