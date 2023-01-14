@@ -35,9 +35,6 @@ const CreateBiz = () => {
 
     return (
         <div>
-            <div>
-                <button className="back-to-home-button">Back to Home</button>
-            </div>
             <div className="container">
                 <div className="title">Add Your Business Details</div>
 
