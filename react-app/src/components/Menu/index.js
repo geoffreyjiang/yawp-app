@@ -40,7 +40,7 @@ const AddMenuItem = () => {
 
     return (
         <>
-            <h3>Menu</h3>
+            <h3>Menú</h3>
             {add}
             <div className="menu-container">{items}</div>
         </>

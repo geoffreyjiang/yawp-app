@@ -58,7 +58,12 @@ h3 {
     padding: 2rem;
     justify-content: center;
 }
-
+.m-container .menu-container > h3 {
+    font-style: italic;
+}
+.m-container > h3 {
+    font-style: italic;
+}
 .item-border {
     padding-bottom: 10px;
 }
