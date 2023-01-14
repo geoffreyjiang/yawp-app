@@ -12,7 +12,7 @@ class Answer(db.Model):
     body = db.Column(db.String(255), nullable=False)
 
     answer_owner = db.relationship('User',  back_populates='answers')
-    answer_question = db.relationship('Question', back_populates='question_answer')
+    answer_question = db.relationship('Question', back_populates='question_answer', cascade='all,delete')
     def to_dict(self):
         return {
             "id": self.id,

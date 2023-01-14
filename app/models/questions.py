@@ -13,7 +13,7 @@ class Question(db.Model):
 
     question_owner = db.relationship("User", back_populates="questions")
     question_biz = db.relationship("Business", back_populates="biz_question")
-    question_answer = db.relationship("Answer", back_populates="answer_question")
+    question_answer = db.relationship("Answer", back_populates="answer_question", cascade='all,delete')
 
     def to_dict(self):
         return {

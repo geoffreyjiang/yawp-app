@@ -11,7 +11,7 @@ class Menu(db.Model):
     price = db.Column(db.Integer,  nullable=False)
     business_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('businesses.id')), nullable=False)
 
-    biz_food = db.relationship('Business', back_populates="food_menu")
+    biz_food = db.relationship('Business', back_populates="food_menu", cascade='all,delete')
 
     def to_dict(self):
         return {

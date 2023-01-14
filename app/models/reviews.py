@@ -13,7 +13,7 @@ class Review(db.Model):
     rating = db.Column(db.Integer, nullable=False)
     body = db.Column(db.String(280), nullable=False)
 
-    review_biz = db.relationship('Business', back_populates="biz_review")
+    review_biz = db.relationship('Business', back_populates="biz_review", cascade='all,delete')
     review_owner = db.relationship("User", back_populates="reviews")
 
     def __repr__(self):
