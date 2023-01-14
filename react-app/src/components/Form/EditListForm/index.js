@@ -5,7 +5,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import { getBusinesses, editBusiness } from "../../../store/business";
-
+import "./EditListForm.css";
 const EditListingFormPage = (id) => {
     const dispatch = useDispatch();
     const history = useHistory();
@@ -48,7 +48,7 @@ const EditListingFormPage = (id) => {
 
     return (
         <div onClick={(e) => e.stopPropagation()}>
-            <div>
+            <div className="edit-biz-container">
                 <form onSubmit={handleSubmit}>
                     <header>Edit Your Listing</header>
                     <div>
@@ -94,14 +94,16 @@ const EditListingFormPage = (id) => {
                     <div>
                         <label htmlFor="previewImage">Image URL:</label>
                         <input
-                            type="input"
+                            type="text"
                             name="Image"
                             value={image}
                             onChange={(e) => setImage(e.target.value)}
                         />
                     </div>
                 </form>
-                <button onClick={(e) => handleSubmit(e)}>Save Changes</button>
+                <button className="edit-btn" onClick={(e) => handleSubmit(e)}>
+                    Save Changes
+                </button>
             </div>
         </div>
     );

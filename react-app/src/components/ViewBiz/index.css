@@ -116,3 +116,12 @@ button {
     height: 200px;
     border-bottom: auto;
 }
+
+.biz-description > h5 {
+    font-weight: lighter;
+}
+
+.biz-user-btns {
+    display: flex;
+    flex-direction: row;
+}

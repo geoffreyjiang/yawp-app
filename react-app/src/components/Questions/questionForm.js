@@ -35,6 +35,7 @@ const AskQuestion = () => {
                         type="text"
                         value={body}
                         name="question"
+                        className="question-text"
                         onChange={(e) => setBody(e.target.value)}
                     ></textarea>
                     <div>

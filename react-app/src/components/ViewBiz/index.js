@@ -59,13 +59,13 @@ const ViewBiz = () => {
                         <h1>{biz.name}</h1>
                         <br></br>
                         <h3>
-                            Address: {biz.address1},<br></br>
-                            {biz.city}, {biz.state} <br></br>
+                            Address: {biz.address1},{biz.city}, {biz.state}{" "}
+                            <br></br>
                             Average Rating: {biz.averageRating}
                         </h3>
                         <h2>
                             {user.id == biz.userId ? (
-                                <>
+                                <div className="biz-user-btns">
                                     <button
                                         onClick={() =>
                                             editListingOnClick(biz.id)
@@ -80,9 +80,19 @@ const ViewBiz = () => {
                                     >
                                         Delete Button
                                     </button>
-                                </>
+                                </div>
                             ) : null}
                         </h2>
+                        {/* <div className="biz-description">
+                            <h4>About</h4>
+                            <h5>
+                                Lorem ipsum dolor, sit amet consectetur
+                                adipisicing elit. Debitis odio ipsum non
+                                voluptate laboriosam optio laudantium reiciendis
+                                necessitatibus nisi quae dolore illo, nobis
+                                blanditiis in totam vero natus minus magnam.
+                            </h5>
+                        </div> */}
                     </div>
                     <h3>{biz.username}</h3>
                 </div>

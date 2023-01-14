@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 // import { getBusinesses } from "../../store/business";
 import { getQuestions } from "../../store/questions";
-
 import "./questions.css";
 const AllQuestions = () => {
     const { bizId } = useParams();
@@ -31,9 +30,12 @@ const AllQuestions = () => {
     });
     return (
         <>
-            <h3>
-                Questions
-                <button onClick={() => history.push(`/biz/${bizId}/questions`)}>
+            <h3 className="questions-title">
+                Questions{" "}
+                <button
+                    className="ask-btn"
+                    onClick={() => history.push(`/biz/${bizId}/questions`)}
+                >
                     Ask a question
                 </button>
             </h3>

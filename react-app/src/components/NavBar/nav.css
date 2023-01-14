@@ -45,3 +45,16 @@ li {
 ul > .list-item > .list-nav {
     display: inline-block;
 } */
+.icon-btn {
+    background-color: #ff2e63;
+    border: none;
+    color: white;
+}
+
+.demo-btn {
+    background-color: #ff2e63;
+    color: white;
+    border: none;
+    font-weight: 300;
+    font-size: 16px;
+}

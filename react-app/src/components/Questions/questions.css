@@ -16,15 +16,18 @@ h3 {
     align-items: center;
     justify-content: center;
 } */
-form {
+.question-form {
     max-width: 500px;
     margin: 2rem auto;
     border: 1px solid;
     padding: 2rem;
+    margin-top: 7%;
     align-items: center;
     flex-direction: column;
     display: flex;
-
+    /* right: 50%;
+    top: 50%;
+    position: absolute; */
     justify-content: center;
 }
 
@@ -34,10 +37,12 @@ form {
     margin-right: auto;
 }
 
-h3 {
+.question-text {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 250px;
+    height: 200px;
 }
 
 .question-item {
@@ -45,4 +50,23 @@ h3 {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.q-container > h3 {
+    /* margin-top: 20px; */
+    /* width: 300px; */
+    justify-content: center;
+    display: flex;
+    align-items: column;
+    /* height: 200px; */
+}
+
+.questions-title {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ask-btn {
+    margin-left: 15px;
 }

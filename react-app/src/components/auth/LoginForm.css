@@ -1,19 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 
-label {
+.user-input {
     font-family: "Roboto", sans-serif;
     margin: 50px;
     font-size: 15px;
     font-style: bold;
 }
 
-form {
+/* form {
     display: flex;
     justify-content: space-evenly;
     margin: 50px;
-}
+} */
 
-button {
+.login-btn {
     margin: 20px;
     background-color: #ff2e63;
     border-radius: 8px;
@@ -62,3 +62,5 @@ select {
     border-radius: 4px;
     box-sizing: border-box;
 }
+
+/* .user-form {} */
