@@ -40,7 +40,7 @@ function PostReview() {
         <>
             <section className="new-review">
                 <form class="make-new-review" className="make-new-review" onSubmit={handleSubmit}>
-                    <h3 className="review-element">New Review</h3>
+                    <h1 className="review-title">New Review</h1>
                     <input
                         class="review-element"
                         type="range"
@@ -50,16 +50,16 @@ function PostReview() {
                         max="5"
                         onChange={(e) => setRating(e.target.value)}>
                     </input>
-                    <label class="review-element">{rating}</label>
+                    <label class="review-text">{rating}</label>
 
                     <input
-                        class="review-element"
+                        class="review-body"
                         type="textarea"
                         name="body"
                         value={body}
                         onChange={(e) => setBody(e.target.value)}>
                     </input>
-                    <button className="review-element" type=" submit">
+                    <button class="review-button" className="review-button" type=" submit">
                         Post Review
                     </button>
                 </form>
