@@ -9,7 +9,7 @@ class Business(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(300), nullable=False)
     address1 = db.Column(db.String, nullable=False)
-    address2 = db.Column(db.Integer, nullable=True)
+    address2 = db.Column(db.String, nullable=True)
     city = db.Column(db.String, nullable=False)
     state = db.Column(db.String, nullable=False)
     image = db.Column(db.String, nullable=True)
