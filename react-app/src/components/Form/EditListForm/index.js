@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { getBusinessId } from "../../../store/business";
 import "./EditListForm.css";
 
 import { useHistory, useParams } from "react-router-dom";
@@ -23,6 +24,9 @@ const EditListingFormPage = (id) => {
     const [image, setImage] = useState(biz.image);
 
     // let bizId = id;
+    useEffect(() => {
+        dispatch(getBusinessId(bizId));
+    }, [dispatch]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -47,63 +51,77 @@ const EditListingFormPage = (id) => {
     };
 
     return (
-        <div onClick={(e) => e.stopPropagation()}>
-            <div className="edit-biz-container">
-                <form onSubmit={handleSubmit}>
-                    <header>Edit Your Listing</header>
-                    <div>
-                        <label htmlFor="address">Name</label>
-                        <input
-                            type="text"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor=" Address1:">Address1:</label>
-                        <input
-                            type="text"
-                            value={address1}
-                            onChange={(e) => setAddress1(e.target.value)}
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="Address2">Address2:</label>
-                        <input
-                            type="text"
-                            value={address2}
-                            onChange={(e) => setAddress2(e.target.value)}
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="city">City:</label>
-                        <input
-                            type="text"
-                            value={city}
-                            onChange={(e) => setCity(e.target.value)}
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="State">State:</label>
-                        <input
-                            type="text"
-                            value={state}
-                            onChange={(e) => setState(e.target.value)}
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="previewImage">Image URL:</label>
-                        <input
-                            type="text"
-                            name="Image"
-                            value={image}
-                            onChange={(e) => setImage(e.target.value)}
-                        />
+        <div className="edit-biz-container">
+            <div className="container">
+                <div className="title">Edit Your Business</div>
+
+                <form method="POST" onSubmit={handleSubmit}>
+                    <div className="biz-details">
+                        <div className="input-box">
+                            <span className="details">Business Name</span>
+                            <input
+                                type="text"
+                                placeholder="Enter Business Name"
+                                value={name}
+                                required
+                                onChange={(e) => setName(e.target.value)}
+                            />
+                        </div>
+                        <div className="input-box">
+                            <span className="details">Address 1</span>
+                            <input
+                                type="text"
+                                placeholder="Enter Andress 1"
+                                value={address1}
+                                required
+                                onChange={(e) => setAddress1(e.target.value)}
+                            />
+                        </div>
+                        <div className="input-box">
+                            <span className="details">Address 2</span>
+                            <input
+                                type="text"
+                                value={address2}
+                                placeholder="Enter Andress 2"
+                                onChange={(e) => setAddress2(e.target.value)}
+                            />
+                        </div>
+                        <div className="input-box">
+                            <span className="details">City</span>
+                            <input
+                                type="text"
+                                placeholder="Enter City"
+                                value={city}
+                                required
+                                onChange={(e) => setCity(e.target.value)}
+                            />
+                        </div>
+                        <div className="input-box">
+                            <span className="details">State</span>
+                            <input
+                                type="text"
+                                placeholder="Enter State"
+                                value={state}
+                                required
+                                onChange={(e) => setState(e.target.value)}
+                            />
+                        </div>
+                        <div className="input-box">
+                            <span className="details">Business Image URL</span>
+                            <input
+                                type="input"
+                                placeholder="Enter Business Image"
+                                value={image}
+                                required
+                                onChange={(e) => setImage(e.target.value)}
+                            />
+                        </div>
+
+                        <button type="submit" className="button">
+                            Save Changes
+                        </button>
                     </div>
                 </form>
-                <button className="edit-btn" onClick={(e) => handleSubmit(e)}>
-                    Save Changes
-                </button>
             </div>
         </div>
     );

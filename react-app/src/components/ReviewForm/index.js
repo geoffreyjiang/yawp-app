@@ -4,6 +4,10 @@ import { useParams, useHistory } from "react-router-dom";
 import businessReducer, { getBusinessId } from "../../store/business";
 import { getSelectedBizReviews } from "../../store/reviews";
 import PostReview from "./CreateReview";
+
+import "./index.css";
+import Rating from "../Home/Rating";
+
 const ReviewForm = () => {
     const [userHasReview, setUserHasReview] = useState(false);
     const history = useHistory();
@@ -62,9 +66,9 @@ const ReviewForm = () => {
                         <button
                             onClick={() => {
                                 history.push(`/biz/${bizId}/reviews`);
-                                <PostReview user={sessionUser} />
-                            }}>
-                            Create Review
+                            }}
+                        >
+                            Write A Review
                         </button>
                     )
                 }
