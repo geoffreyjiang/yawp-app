@@ -35,31 +35,27 @@ const AllBiz = () => {
                             <>
                                 {biz.reviews.length > 0 ? (
                                     <>
-                                        <header className="header-card">
-                                            <div>
-                                                <span
-                                                    style={{
-                                                        fontWeight: "bold",
-                                                    }}
-                                                >
-                                                    {" "}
-                                                    {
-                                                        biz?.reviews[
-                                                            biz.reviews.length -
-                                                                1
-                                                        ]?.firstName
-                                                    }{" "}
-                                                    {""}
-                                                    {
-                                                        biz?.reviews[
-                                                            biz.reviews.length -
-                                                                1
-                                                        ]?.lastName
-                                                    }{" "}
-                                                </span>
-                                            </div>
+                                        <div className="header-card">
+                                            <span
+                                                style={{
+                                                    fontWeight: "bold",
+                                                }}
+                                            >
+                                                {" "}
+                                                {
+                                                    biz?.reviews[
+                                                        biz.reviews.length - 1
+                                                    ]?.firstName
+                                                }{" "}
+                                                {""}
+                                                {
+                                                    biz?.reviews[
+                                                        biz.reviews.length - 1
+                                                    ]?.lastName
+                                                }{" "}
+                                            </span>
                                             <div>Wrote a review</div>
-                                        </header>
+                                        </div>
                                         <div className="image-container">
                                             <img
                                                 src={biz?.image}
@@ -94,69 +90,51 @@ const AllBiz = () => {
                                                     </NavLink>
                                                 </div>
                                             </div>
-
-                                            <div className="review-info">
-                                                <div
-                                                    style={{
-                                                        fontWeight: "bold",
-                                                    }}
-                                                >
-                                                    Latest Review: {"\n"}
-                                                </div>
-                                                <div>
-                                                    <Rating
-                                                        value={
-                                                            biz.reviews[
-                                                                biz.reviews
-                                                                    .length - 1
-                                                            ].rating
-                                                        }
-                                                    />
-                                                </div>
-                                                <div className="actual-review">
-                                                    {
-                                                        biz?.reviews[
+                                            <div
+                                                style={{
+                                                    fontWeight: "bold",
+                                                }}
+                                            >
+                                                Latest Review: {"\n"}
+                                            </div>
+                                            <div>
+                                                <Rating
+                                                    value={
+                                                        biz.reviews[
                                                             biz.reviews.length -
                                                                 1
-                                                        ]?.body
+                                                        ].rating
                                                     }
-                                                </div>
-                                                <div>
-                                                    <h4 className="biz-review-info">
-                                                        Biz Review Info
-                                                    </h4>
-                                                    <div className="reviews">
-                                                        {/* <div>
-                                                            <span
-                                                                style={{
-                                                                    fontWeight:
-                                                                        "bold",
-                                                                }}
-                                                            >
-                                                                Total Reviews:{" "}
-                                                            </span>
-                                                            {
-                                                                biz.numberOfReviews
+                                                />
+                                            </div>
+                                            <div className="actual-review">
+                                                {
+                                                    biz?.reviews[
+                                                        biz.reviews.length - 1
+                                                    ]?.body
+                                                }
+                                            </div>
+                                            <div>
+                                                <h4 className="biz-review-info">
+                                                    Biz Review Info
+                                                </h4>
+                                                <div className="reviews">
+                                                    <div>
+                                                        <span
+                                                            style={{
+                                                                fontWeight:
+                                                                    "bold",
+                                                            }}
+                                                        >
+                                                            Biz Avg Review:{" "}
+                                                        </span>
+                                                        <Rating
+                                                            value={
+                                                                biz.averageRating
                                                             }
-                                                        </div> */}
-                                                        <div>
-                                                            <span
-                                                                style={{
-                                                                    fontWeight:
-                                                                        "bold",
-                                                                }}
-                                                            >
-                                                                Biz Avg Review:{" "}
-                                                            </span>
-                                                            <Rating
-                                                                value={
-                                                                    biz.averageRating
-                                                                }
-                                                            />
-                                                        </div>
+                                                        />
                                                     </div>
                                                 </div>
-                                                <div className="card--stats"></div>
                                             </div>
                                         </div>
                                     </>
@@ -197,16 +175,17 @@ const AllBiz = () => {
                                                 Be the first to leave a review
                                                 for {biz?.name}!
                                             </div>
+                                            <div className="image-review">
+                                                <img src="https://starvalleyhealth.org/wp-content/uploads/2021/04/5star.png" />
+                                            </div>
                                         </div>
                                     </div>
                                 )}
                             </>
                         )}
                     </div>
+                    // this is the last
                 ))}
-            </div>
-            <div className="create_biz_button">
-                <button onClick={navToCreateBiz}>Register A Business</button>
             </div>
         </>
     );
