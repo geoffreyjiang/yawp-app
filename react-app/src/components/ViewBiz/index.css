@@ -58,13 +58,8 @@
     /* background-repeat: repeat-x; */
 }
 
-button {
+.biz-btn {
     justify-content: center;
-    display: flex;
-}
-
-.biz-detail-btns {
-    justify-content: end;
     display: flex;
 }
 

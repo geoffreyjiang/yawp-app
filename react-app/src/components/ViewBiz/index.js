@@ -67,18 +67,20 @@ const ViewBiz = () => {
                             {user.id == biz.userId ? (
                                 <div className="biz-user-btns">
                                     <button
+                                        className="biz-btn"
                                         onClick={() =>
                                             editListingOnClick(biz.id)
                                         }
                                     >
-                                        Edit Biz Details
+                                        Edit
                                     </button>
                                     <button
+                                        className="biz-btn"
                                         onClick={() =>
                                             deleteListingOnClick(biz.id)
                                         }
                                     >
-                                        Delete Button
+                                        Delete
                                     </button>
                                 </div>
                             ) : null}
