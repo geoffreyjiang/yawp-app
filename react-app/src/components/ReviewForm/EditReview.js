@@ -52,9 +52,10 @@ function EditReview() {
     return (
         <>
             <section className="edit-review">
-                <form className="edit-review" onSubmit={handleSubmit}>
-                    <h3 className="editReview">New Review</h3>
+                <form className="update-review" onSubmit={handleSubmit}>
+                    <h3 className="review-text">New Review</h3>
                     <input
+                        className="review-range"
                         type="range"
                         name="rating"
                         value={rating}
@@ -63,16 +64,17 @@ function EditReview() {
                         onChange={(e) => setRating(e.target.value)}
                     ></input>
                     <input
+                        className="review-body"
                         type="textarea"
                         name="body"
                         value={body}
                         onChange={(e) => setBody(e.target.value)}
                     ></input>
-                    <button className="button-1" type=" submit">
+                    <button className="review-button" type=" submit">
                         Update Review
                     </button>
                     <button
-                        className="button-1"
+                        className="review-button"
                         onClick={(e) => deleteReview(e)}
                     >
                         Delete Review

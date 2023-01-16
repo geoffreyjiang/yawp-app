@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { addNewReview } from "../../store/reviews";
+import './CreateReview.css'
 
 function PostReview() {
     const history = useHistory()
@@ -39,8 +40,9 @@ function PostReview() {
         <>
             <section className="new-review">
                 <form className="make-new-review" onSubmit={handleSubmit}>
-                    <h3 className="newReview">New Review</h3>
+                    <h3 className="review-text">New Review</h3>
                     <input
+                        className="review-range"
                         type="range"
                         name="rating"
                         value={rating}
@@ -48,13 +50,16 @@ function PostReview() {
                         max="5"
                         onChange={(e) => setRating(e.target.value)}>
                     </input>
+                    <label className="rating-label">{rating} stars</label>
                     <input
+                        className="review-body"
                         type="textarea"
                         name="body"
                         value={body}
                         onChange={(e) => setBody(e.target.value)}>
                     </input>
-                    <button className="button-1" type=" submit">
+
+                    <button className="review-button" type=" submit">
                         Post Review
                     </button>
                 </form>

@@ -1,11 +1,10 @@
-.edit-review {
+.new-review {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: tomato;
 }
 
-.update-review {
+.make-new-review {
     display: flex;
     flex-direction: column;
     width: 80%;
