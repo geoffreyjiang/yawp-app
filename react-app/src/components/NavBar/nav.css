@@ -50,6 +50,7 @@ ul > .list-item > .list-nav {
     background-color: #ff2e63;
     border: none;
     color: white;
+    cursor: pointer;
 }
 
 .demo-btn {
@@ -59,4 +60,5 @@ ul > .list-item > .list-nav {
     font-weight: 300;
     font-size: 16px;
     margin-right: 5px;
+    cursor: pointer;
 }
