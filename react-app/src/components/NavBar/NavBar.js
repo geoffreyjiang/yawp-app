@@ -39,9 +39,7 @@ const NavBar = () => {
                         <i class="fa-solid fa-plus fa-2x"></i>
                     </button>
                 </li>
-                <li className="list-item">
-                    <LogoutButton />
-                </li>
+                <LogoutButton />
             </ul>
         );
     } else {
