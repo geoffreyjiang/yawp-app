@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { signUp } from "../../store/session";
+import './SignUpForm.css'
 
 const SignUpForm = () => {
     const [errors, setErrors] = useState([]);
@@ -73,7 +74,7 @@ const SignUpForm = () => {
                 ))}
             </div>
             <div>
-                <label>User Name</label>
+                <label className="user-input">User Name</label>
                 <input
                     type="text"
                     name="username"
@@ -83,7 +84,7 @@ const SignUpForm = () => {
                 ></input>
             </div>
             <div>
-                <label>First Name</label>
+                <label className="user-input">First Name</label>
                 <input
                     type="text"
                     name="first-name"
@@ -93,7 +94,7 @@ const SignUpForm = () => {
                 ></input>
             </div>
             <div>
-                <label>Last Name</label>
+                <label className="user-input">Last Name</label>
                 <input
                     type="text"
                     name="last-name"
@@ -103,7 +104,7 @@ const SignUpForm = () => {
                 ></input>
             </div>
             <div>
-                <label>Email</label>
+                <label className="user-input">Email</label>
                 <input
                     type="text"
                     name="email"
@@ -113,7 +114,7 @@ const SignUpForm = () => {
                 ></input>
             </div>
             <div>
-                <label>Password</label>
+                <label className="user-input">Password</label>
                 <input
                     type="password"
                     required
@@ -122,9 +123,10 @@ const SignUpForm = () => {
                     value={password}
                 ></input>
             </div>
-            <div>
-                <label>Repeat Password</label>
+            <div >
+                <label className="user-input">Repeat Password</label>
                 <input
+                    className="sign-up-form"
                     type="password"
                     name="repeat_password"
                     onChange={updateRepeatPassword}
@@ -132,7 +134,7 @@ const SignUpForm = () => {
                     required={true}
                 ></input>
             </div>
-            <button type="submit">Sign Up</button>
+            <button className="sign-up-btn" type="submit">Sign Up</button>
         </form>
     );
 };

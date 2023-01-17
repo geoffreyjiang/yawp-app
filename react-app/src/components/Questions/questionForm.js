@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { postQuestion } from "../../store/questions";
+import './questions.css'
 
 const AskQuestion = () => {
     const user = useSelector((state) => state.session.user);
@@ -31,7 +32,7 @@ const AskQuestion = () => {
         <>
             <div className="create-question-container">
                 <form className="question-form" onSubmit={handleSubmit}>
-                    <h2>Ask a question</h2>
+                    <h2 className="question-label">Ask a question</h2>
                     <textarea
                         type="text"
                         value={body}

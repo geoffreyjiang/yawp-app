@@ -68,7 +68,7 @@ a {
 .profile {
     display: flex;
     align-items: center;
-    margin: 15px;
+    margin: 10px;
 }
 
 .name-user {
@@ -103,7 +103,7 @@ a {
 
 .client-comment {
     font-family: "Roboto", sans-serif;
-    margin: 25px;
+    margin: 10px;
 }
 
 .update-review {
