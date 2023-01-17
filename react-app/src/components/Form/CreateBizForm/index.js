@@ -3,7 +3,7 @@ import "./index.css";
 
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { createBusiness } from "../../../store/business";
+import { createBusiness, getBusinesses } from "../../../store/business";
 
 // import { addNewSpot } from "../../../store/spotsReducer";
 
@@ -30,14 +30,12 @@ const CreateBiz = () => {
         };
 
         dispatch(createBusiness(newBiz));
+        dispatch(getBusinesses());
         history.push("/");
     };
 
     return (
         <div>
-            <div>
-                <button className="back-to-home-button">Back to Home</button>
-            </div>
             <div className="container">
                 <div className="title">Add Your Business Details</div>
 
@@ -92,7 +90,7 @@ const CreateBiz = () => {
                             <input
                                 type="input"
                                 placeholder="Enter Business Image"
-                                required
+                                // required
                                 onChange={(e) => setImage(e.target.value)}
                             />
                         </div>

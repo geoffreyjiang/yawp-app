@@ -32,7 +32,9 @@ const ViewBiz = () => {
 
     const deleteListingOnClick = (bizId) => {
         // console.log(bizId, "DELETE CLICK");
+
         dispatch(removeBusiness(bizId));
+        dispatch(getBusinesses());
         history.push("/");
     };
 

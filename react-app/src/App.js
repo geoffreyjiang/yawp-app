@@ -89,6 +89,9 @@ function App() {
                 <Route path="/biz/:bizId/menu" exact={true}>
                     <AddItem />
                 </Route>
+                <Route>
+                    <h1>404: Page not found</h1>
+                </Route>
             </Switch>
         </BrowserRouter>
     );
