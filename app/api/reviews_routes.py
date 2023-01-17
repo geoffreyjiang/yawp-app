@@ -29,10 +29,9 @@ def updateReview(id):
     form = ReviewForm()
     review = Review.query.get(id)
 
-    if form.validate_on_submit():
-        review.body = form.data['body']
-        review.rating = form.data['rating']
-        review.image = form.data['image']
+    review.body = form.data['body']
+    review.rating = form.data['rating']
+    review.image = form.data['image']
 
         # form.populate_obj(review)
     db.session.commit()

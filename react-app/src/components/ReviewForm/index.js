@@ -38,6 +38,7 @@ const ReviewForm = () => {
 
                 {userReview.length == 0 ? (
                     <button
+                        className="write-review"
                         onClick={() => {
                             history.push(`/biz/${bizId}/reviews`);
                         }}

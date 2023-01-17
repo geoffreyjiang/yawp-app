@@ -129,6 +129,33 @@ a {
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-    width: 30px;
+    width: 60px;
+    align-self: center;
+}
+
+.write-review {
+    margin: 20px;
+    background-color: #ff2e63;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 50px;
+    line-height: 20px;
+    list-style: none;
+    outline: none;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 90px;
     align-self: center;
 }

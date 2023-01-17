@@ -68,6 +68,7 @@ function EditReview() {
                     <input
                         className="review-body"
                         type="textarea"
+                        required
                         name="body"
                         value={body}
                         onChange={(e) => setBody(e.target.value)}
