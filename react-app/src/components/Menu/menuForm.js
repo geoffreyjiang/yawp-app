@@ -44,10 +44,15 @@ const AddItem = () => {
                         ></input>
                     </div>
                     <div className="menu-input">
-                        <label>Price</label>
+                        <label>
+                            Price
+                            <br />
+                        </label>{" "}
                         <input
-                            type="text"
+                            type="number"
+                            step="0.01"
                             name="price"
+                            min="0"
                             value={price}
                             required
                             onChange={(e) => setPrice(e.target.value)}
