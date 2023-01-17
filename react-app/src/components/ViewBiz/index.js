@@ -61,10 +61,13 @@ const ViewBiz = () => {
                     <div className="biz-info">
                         <h1>{biz.name}</h1>
                         <br></br>
-                        <h3>
-                            {biz.address1},{biz.city}, {biz.state} <br></br>
-                            <Rating value={biz.averageRating} />
-                        </h3>
+                        <h3>{biz.address1}</h3>
+
+                        <h4>
+                            {biz.city}, {biz.state}
+                        </h4>
+                        <br></br>
+                        <Rating value={biz.averageRating} />
                         <h2>
                             {user.id == biz.userId ? (
                                 <div className="biz-user-btns">
