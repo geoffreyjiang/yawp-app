@@ -39,9 +39,7 @@ const NavBar = () => {
                         <i class="fa-solid fa-plus fa-2x"></i>
                     </button>
                 </li>
-                <li className="list-item">
-                    <LogoutButton />
-                </li>
+                <LogoutButton />
             </ul>
         );
     } else {
@@ -52,16 +50,18 @@ const NavBar = () => {
                         <i class="fa-solid fa-house fa-2x"></i>
                     </NavLink>
                 </li>
-                <li className="list-item">
-                    <NavLink to="/login" className="demo-btn">
-                        Login
-                    </NavLink>
-                    {" | "}
-                    <NavLink to="/sign-up" className="demo-btn">
-                        Sign Up
-                    </NavLink>
-                    {" | "}
-                </li>
+                <button
+                    className="demo-btn"
+                    onClick={(e) => history.push("/login")}
+                >
+                    Login
+                </button>
+                <button
+                    className="demo-btn"
+                    onClick={(e) => history.push("/sign-up")}
+                >
+                    Sign Up
+                </button>{" "}
                 <button
                     onClick={async (e) => {
                         const credential = "gjiang@aa.io";

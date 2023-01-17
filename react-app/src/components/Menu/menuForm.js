@@ -38,6 +38,7 @@ const AddItem = () => {
                         <input
                             type="text"
                             name="name"
+                            required
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                         ></input>
@@ -48,6 +49,7 @@ const AddItem = () => {
                             type="text"
                             name="price"
                             value={price}
+                            required
                             onChange={(e) => setPrice(e.target.value)}
                         ></input>
                     </div>
