@@ -8,6 +8,7 @@ function PostReview() {
     const history = useHistory()
     const dispatch = useDispatch()
     const sessionUser = useSelector((state) => state.session.user)
+    const [errors, setErrors] = useState([]);
     const [body, setBody] = useState("")
     const [rating, setRating] = useState(1)
     const [userId, setUserId] = useState(sessionUser.id)
@@ -15,6 +16,11 @@ function PostReview() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+
+
+        if (body.length === 0) {
+
+        }
 
         if (sessionUser) {
             setUserId(sessionUser?.id)
@@ -28,7 +34,7 @@ function PostReview() {
             image: null
         }
         const createdReview = dispatch(addNewReview(bizId, payload))
-        console.log(createdReview, "<=== REVIEW")
+
         if (createdReview) {
             alert("Review successfully added!")
             setBody("")
@@ -41,6 +47,11 @@ function PostReview() {
             <section className="new-review">
                 <form className="make-new-review" onSubmit={handleSubmit}>
                     <h3 className="review-text">New Review</h3>
+                    <div>
+                        {errors.map((error, ind) => (
+                            <div key={ind}>{error}</div>
+                        ))}
+                    </div>
                     <input
                         className="review-range"
                         type="range"
@@ -54,6 +65,7 @@ function PostReview() {
                     <input
                         className="review-body"
                         type="textarea"
+                        required
                         name="body"
                         value={body}
                         onChange={(e) => setBody(e.target.value)}>

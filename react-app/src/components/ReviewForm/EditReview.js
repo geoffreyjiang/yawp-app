@@ -54,7 +54,7 @@ function EditReview() {
     return (
         <>
             <section className="edit-review">
-                <form className="update-review" onSubmit={handleSubmit}>
+                <form className="put-review" onSubmit={handleSubmit}>
                     <h3 className="review-text">Edit Review</h3>
                     <input
                         className="review-range"

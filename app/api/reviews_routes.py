@@ -29,11 +29,11 @@ def updateReview(id):
     form = ReviewForm()
     review = Review.query.get(id)
 
-    review.body = form.data['body']
-    review.rating = form.data['rating']
-    review.image = form.data['image']
+    if form.validate_on_submit():
+        review.body = form.data['body']
+        review.rating = form.data['rating']
+        review.image = form.data['image']
 
-    print(review, "<=== REVIEW API BACKEND DATA")
         # form.populate_obj(review)
     db.session.commit()
 
