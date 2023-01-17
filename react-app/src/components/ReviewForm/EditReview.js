@@ -5,20 +5,22 @@ import { addReview } from "../../store/reviews";
 import { getBusinesses } from "../../store/business";
 import { editMyReview } from "../../store/reviews";
 import { deleteMyReview } from "../../store/reviews";
-
+import { getSelectedBizReviews } from "../../store/reviews";
+import './EditReview.css'
 function EditReview() {
     const history = useHistory();
     const dispatch = useDispatch();
-    const sessionUser = useSelector((state) => state.session.user);
+    const sessionUser = useSelector((state) => state?.session.user);
     const { bizId } = useParams();
     const { reviewId } = useParams();
-    const review = useSelector((state) => state.reviews[reviewId]);
-    const [body, setBody] = useState(review.body);
-    const [rating, setRating] = useState(review.rating);
+    const review = useSelector((state) => state?.reviews[reviewId]);
+    const [body, setBody] = useState(review?.body);
+    const [rating, setRating] = useState(review?.rating);
     const [userId, setUserId] = useState(sessionUser?.id);
 
     useEffect(() => {
         dispatch(getBusinesses());
+        dispatch(getSelectedBizReviews(bizId))
     }, [dispatch]);
 
     const handleSubmit = async (e) => {
@@ -45,16 +47,17 @@ function EditReview() {
     };
 
     const deleteReview = (e) => {
-        dispatch(deleteMyReview(review.id));
+        dispatch(deleteMyReview(review?.id));
         alert("Review successfully removed!");
         history.push(`/biz/${bizId}`);
     };
     return (
         <>
             <section className="edit-review">
-                <form className="edit-review" onSubmit={handleSubmit}>
-                    <h3 className="editReview">New Review</h3>
+                <form className="put-review" onSubmit={handleSubmit}>
+                    <h3 className="review-text">Edit Review</h3>
                     <input
+                        className="review-range"
                         type="range"
                         name="rating"
                         value={rating}
@@ -63,16 +66,18 @@ function EditReview() {
                         onChange={(e) => setRating(e.target.value)}
                     ></input>
                     <input
+                        className="review-body"
                         type="textarea"
+                        required
                         name="body"
                         value={body}
                         onChange={(e) => setBody(e.target.value)}
                     ></input>
-                    <button className="button-1" type=" submit">
+                    <button className="review-button" type=" submit">
                         Update Review
                     </button>
                     <button
-                        className="button-1"
+                        className="review-button"
                         onClick={(e) => deleteReview(e)}
                     >
                         Delete Review

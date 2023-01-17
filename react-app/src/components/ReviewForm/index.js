@@ -38,6 +38,7 @@ const ReviewForm = () => {
 
                 {userReview.length == 0 ? (
                     <button
+                        className="write-review"
                         onClick={() => {
                             history.push(`/biz/${bizId}/reviews`);
                         }}
@@ -61,7 +62,7 @@ const ReviewForm = () => {
                                         </div>
                                     </div>
 
-                                    <div className="reviewsT">
+                                    <div className="review-ratings">
                                         <i>
                                             <Rating value={review?.rating} />{" "}
                                         </i>
@@ -76,6 +77,7 @@ const ReviewForm = () => {
                                     {user.id == review.userId ? (
                                         <>
                                             <button
+                                                className="update-review"
                                                 onClick={() => {
                                                     history.push(
                                                         `/biz/${bizId}/reviews/${userReview[0].id}`

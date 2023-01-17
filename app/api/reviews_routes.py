@@ -33,7 +33,6 @@ def updateReview(id):
     review.rating = form.data['rating']
     review.image = form.data['image']
 
-    print(review, "<=== REVIEW API BACKEND DATA")
         # form.populate_obj(review)
     db.session.commit()
 
