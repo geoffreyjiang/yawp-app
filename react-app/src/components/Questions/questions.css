@@ -52,7 +52,7 @@ h3 {
     flex-direction: column;
 }
 
-.q-container>h3 {
+.q-container > h3 {
     /* margin-top: 20px; */
     /* width: 300px; */
     justify-content: center;
@@ -73,6 +73,29 @@ h3 {
 
 .ask-btn {
     margin-left: 15px;
+    background-color: #ff2e63;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 200;
+    /* height: 40px; */
+    /* line-height: 20px; */
+    list-style: none;
+    outline: none;
+    padding: 10px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
 }
 
 .submitBtn {

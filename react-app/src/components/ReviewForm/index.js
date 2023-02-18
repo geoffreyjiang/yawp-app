@@ -34,7 +34,7 @@ const ReviewForm = () => {
     return (
         <>
             <div className="header-review">
-                <h1>Review Section</h1>
+                <h1>Reviews</h1>
 
                 {userReview.length == 0 ? (
                     <button
@@ -47,53 +47,52 @@ const ReviewForm = () => {
                     </button>
                 ) : null}
             </div>
-            <section className="reviews">
-                <div className="reviews-box-container">
-                    {bizReviews?.map((review) => (
-                        <>
-                            <div className="review-box">
-                                <div className="box-top">
-                                    <div className="profile">
-                                        <div className="name-user">
-                                            <strong>
-                                                {review.firstName}{" "}
-                                                {review.lastName}
-                                            </strong>
-                                        </div>
+            {/* <section className="reviews"> */}
+            <div className="reviews-box-container">
+                {bizReviews?.map((review) => (
+                    <>
+                        <div className="review-box">
+                            <div className="box-top">
+                                <div className="profile">
+                                    <div className="name-user">
+                                        <strong>
+                                            {review.firstName} {review.lastName}
+                                        </strong>
                                     </div>
+                                </div>
 
-                                    <div className="review-ratings">
-                                        <i>
-                                            <Rating value={review?.rating} />{" "}
-                                        </i>
-                                    </div>
-                                </div>
-                                <div className="comment-section">
-                                    <div className="client-comment">
-                                        <p>{review?.body}</p>
-                                    </div>
-                                </div>
-                                <div>
-                                    {user.id == review.userId ? (
-                                        <>
-                                            <button
-                                                className="update-review"
-                                                onClick={() => {
-                                                    history.push(
-                                                        `/biz/${bizId}/reviews/${userReview[0].id}`
-                                                    );
-                                                }}
-                                            >
-                                                Update Review
-                                            </button>
-                                        </>
-                                    ) : null}
+                                <div className="review-ratings">
+                                    <i>
+                                        <Rating value={review?.rating} />{" "}
+                                    </i>
                                 </div>
                             </div>
-                        </>
-                    ))}
-                </div>
-            </section>
+                            <div className="comment-section">
+                                <div className="client-comment">
+                                    <p>{review?.body}</p>
+                                </div>
+                            </div>
+                            <div>
+                                {user.id == review.userId ? (
+                                    <>
+                                        <button
+                                            className="update-review"
+                                            onClick={() => {
+                                                history.push(
+                                                    `/biz/${bizId}/reviews/${userReview[0].id}`
+                                                );
+                                            }}
+                                        >
+                                            Update Review
+                                        </button>
+                                    </>
+                                ) : null}
+                            </div>
+                        </div>
+                    </>
+                ))}
+            </div>
+            {/* </section> */}
         </>
     );
 };

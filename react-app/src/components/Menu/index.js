@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useHistory } from "react-router-dom";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getMenu } from "../../store/menu";
@@ -7,6 +7,7 @@ import "./menu.css";
 
 const AddMenuItem = () => {
     const { bizId } = useParams();
+    const history = useHistory();
     const user = useSelector((state) => state.session.user);
     const bizUser = useSelector((state) => state.business.userId);
     const m = useSelector((store) => {
@@ -32,16 +33,18 @@ const AddMenuItem = () => {
     let add;
     if (user.id === bizUser) {
         add = (
-            <h3>
-                <Link to={`/biz/${bizId}/menu`}>Add Menu Item</Link>
-            </h3>
+            <buttom
+                className="add-menu"
+                onClick={() => history.push(`/biz/${bizId}/menu`)}
+            >
+                Add Menu Item
+            </buttom>
         );
     }
 
     return (
         <>
-            <h3>Menú</h3>
-            {add}
+            <h3>Menú {add}</h3>
             <div className="menu-container">{items}</div>
         </>
     );

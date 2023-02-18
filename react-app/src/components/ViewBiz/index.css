@@ -36,7 +36,8 @@
     /* position: inherit; */
     margin-right: 200px;
     height: 30%;
-    width: 30%;
+    width: 50%;
+    /* display: flex; */
 }
 
 /* .biz-detail > h1 {
